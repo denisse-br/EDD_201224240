@@ -113,6 +113,7 @@ public:
         consola->setGeometry(QRect(10, 30, 291, 341));
         consola->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
 "font: 11pt \"Fixedsys\";"));
+        consola->setReadOnly(true);
         principal->setCentralWidget(centralWidget);
 
         retranslateUi(principal);
