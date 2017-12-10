@@ -43,6 +43,7 @@ public:
     QLineEdit *txtturnos;
     QGroupBox *groupBox_2;
     QTextEdit *consola;
+    QPushButton *btnsig;
 
     void setupUi(QMainWindow *principal)
     {
@@ -107,13 +108,16 @@ public:
 
         groupBox_2 = new QGroupBox(centralWidget);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(10, 210, 311, 381));
+        groupBox_2->setGeometry(QRect(10, 220, 311, 461));
         consola = new QTextEdit(groupBox_2);
         consola->setObjectName(QStringLiteral("consola"));
-        consola->setGeometry(QRect(10, 30, 291, 341));
+        consola->setGeometry(QRect(10, 30, 291, 421));
         consola->setStyleSheet(QLatin1String("background-color: rgb(0, 0, 0);\n"
 "font: 11pt \"Fixedsys\";"));
         consola->setReadOnly(true);
+        btnsig = new QPushButton(centralWidget);
+        btnsig->setObjectName(QStringLiteral("btnsig"));
+        btnsig->setGeometry(QRect(120, 690, 80, 21));
         principal->setCentralWidget(centralWidget);
 
         retranslateUi(principal);
@@ -136,6 +140,7 @@ public:
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'Fixedsys'; font-size:11pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;\"><br /></p></body></html>", Q_NULLPTR));
+        btnsig->setText(QApplication::translate("principal", "SIGUIENTE", Q_NULLPTR));
     } // retranslateUi
 
 };

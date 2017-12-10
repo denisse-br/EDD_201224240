@@ -13,11 +13,14 @@ class principal : public QMainWindow
 
 public:
     explicit principal(QWidget *parent = 0);
+    int contador=1,turno, escritorio,mantenimiento,aviones;
     ~principal();
 
 private slots:
     void on_pushButton_clicked();
-    //int contador=0;
+
+
+    void on_btnsig_clicked();
 
 private:
     Ui::principal *ui;

@@ -96,9 +96,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>210</y>
+      <y>220</y>
       <width>311</width>
-      <height>381</height>
+      <height>461</height>
      </rect>
     </property>
     <property name="title">
@@ -110,7 +110,7 @@
        <x>10</x>
        <y>30</y>
        <width>291</width>
-       <height>341</height>
+       <height>421</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -128,6 +128,19 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
+   </widget>
+   <widget class="QPushButton" name="btnsig">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>690</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SIGUIENTE</string>
+    </property>
    </widget>
   </widget>
  </widget>
