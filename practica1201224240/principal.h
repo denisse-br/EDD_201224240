@@ -17,6 +17,7 @@ public:
 
 private slots:
     void on_pushButton_clicked();
+    //int contador=0;
 
 private:
     Ui::principal *ui;
