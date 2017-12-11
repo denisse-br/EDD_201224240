@@ -80,7 +80,7 @@ nodo pivote=*l;
                     *l=pivote->nxt;
                     (*l)->ant=NULL;
                     free(pivote);
-                }else{
+                }else{//el resto
                     if(pivote->nxt==NULL){
                         pivote->ant->nxt=NULL;
                         free(pivote);
