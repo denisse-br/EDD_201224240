@@ -97,6 +97,7 @@ nodo pivote=*l;
                 pivote=pivote->nxt;
             }
         }
+        printf("elemento a eliminar no encontrado\n");
     }
 }
 
