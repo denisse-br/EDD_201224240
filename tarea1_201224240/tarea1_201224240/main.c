@@ -15,9 +15,7 @@ void mostrar(ld *l);
 
 int main(){
     ld listadoble=NULL;
-    nodo nuevo;
-    int opcion=0;
-    int valor=0;
+    int opcion=0,valor=0,eliminar=0;
     printf("Ingrese el numero de opcion que desea:\n1. insertar\n2.eliminar\n3.mostrar la lista\n");
     scanf("%d",&opcion);
     while(opcion<4){
@@ -26,7 +24,9 @@ int main(){
         scanf("%d",&valor);
         insertar(&listadoble, valor);
     }else if(opcion==2){
-
+        printf("ingrese el valor que desea eliminar: ");
+        scanf("%d",&eliminar);
+        borrar(&listadoble,eliminar);
     }else if(opcion==3){
         mostrar(&listadoble);
     }
@@ -52,7 +52,6 @@ if(!(*l)){//vacia
     nuevo->ant=actual;
     nuevo->nxt=NULL;
 }
-
 }
 void mostrar(ld *l){
     nodo actual=*l;
@@ -60,10 +59,44 @@ void mostrar(ld *l){
         printf("\nlista vacia\n");
     }else{
         printf("ELEMENTOS DE LA LISTA: \n");
-        while (actual->nxt!=NULL) {
+        while (actual!=NULL) {
             printf("%d\n",actual->valor);
             actual=actual->nxt;
         }
-        printf("%d\n",actual->valor);
     }
 }
+void borrar(ld *l, int v){
+nodo pivote=*l;
+    if(!(*l)){
+        printf("lista vacia, nada que eliminar\n");
+    }else{
+        while(pivote!=NULL){
+            if(pivote->valor==v){
+                nodo auxant,auxnxt;
+                printf("elemento encontrado\n");
+                if(pivote==*l &&pivote->nxt==NULL){//1 elemento
+                    *l=NULL;
+                }else if(pivote==*l){//principio
+                    *l=pivote->nxt;
+                    (*l)->ant=NULL;
+                    free(pivote);
+                }else{
+                    if(pivote->nxt==NULL){
+                        pivote->ant->nxt=NULL;
+                        free(pivote);
+                    }else{
+                        pivote->ant->nxt=pivote->nxt;
+                        pivote->nxt->ant=pivote->ant;
+                        free(pivote);
+                    }
+                }
+                printf("elemento eliminado\n");
+                break;
+            }
+            else{
+                pivote=pivote->nxt;
+            }
+        }
+    }
+}
+
