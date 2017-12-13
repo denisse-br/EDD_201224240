@@ -25,7 +25,15 @@ void graficar::graficardoble(listadoble *ld){
    if(avion!=NULL){
 
        while(avion!=NULL){
-           fprintf(grafico,"\t\t a%d[label=\"%d\"];\n",nodo, avion->id);
+           if(avion->tipo==1){
+               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Pequeño\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+           }else if(avion->tipo==2){
+               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Mediano\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+           }
+           else if(avion->tipo==3){
+               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Grande\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+           }
+
            nodo++;
            avion=avion->nxt;
        }

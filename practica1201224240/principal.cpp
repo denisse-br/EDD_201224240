@@ -3,7 +3,7 @@
 #include "QMessageBox"
 #include "avion.h"
 #include "graficar.h"
-
+#include "mantenimiento.h"
 principal::principal(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::principal)
@@ -23,6 +23,7 @@ principal::~principal()
 void principal::on_pushButton_clicked()
 {
     ld=NULL;
+    ls=NULL;
 
     if(ui->txtavion->text()==""||ui->txtescritorio->text()==""||ui->txtmantenimiento->text()==""||ui->txtturnos->text()==""){
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
@@ -33,6 +34,9 @@ void principal::on_pushButton_clicked()
      escritorio=ui->txtescritorio->text().toInt();
      mantenimiento=ui->txtmantenimiento->text().toInt();
      turno=ui->txtturnos->text().toInt();
+     for(int i=1;i<=mantenimiento;i++){
+        insertarEstacion(&ls,i,0,0,0);
+     }
      ranav=rand()%(3-1+1)+1;
      if(ranav==1){//peque
          tama="Pequeño";

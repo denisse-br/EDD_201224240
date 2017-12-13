@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "avion.h"
+#include "mantenimiento.h"
 namespace Ui {
 class principal;
 }
@@ -14,6 +15,7 @@ class principal : public QMainWindow
 public:
     explicit principal(QWidget *parent = 0);
     listadoble ld;
+    listasimple ls;
     int contador=1,turno, escritorio,mantenimiento,aviones;
     int ranav,ranpas,ranman,des;//aviones
     QString tama;

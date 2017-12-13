@@ -4,10 +4,10 @@ digraph{
 label = "AEROPUERTO"; 
 	  subgraph clusterAviones{ 
 	  label = "AVIONES"; 
-		 a0[label="2"];
-		 a1[label="3"];
-		 a2[label="4"];
-		 a3[label="5"];
+		 a0[label="ID: 2\n Tamaño: Mediano\n Pasajeros: 22\n Turnos en mantenimiento: 3 "];
+		 a1[label="ID: 3\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 2 "];
+		 a2[label="ID: 4\n Tamaño: Grande\n Pasajeros: 37\n Turnos en mantenimiento: 4 "];
+		 a3[label="ID: 5\n Tamaño: Mediano\n Pasajeros: 23\n Turnos en mantenimiento: 3 "];
 	 }a0->a1
 a1->a2
 a1->a0
