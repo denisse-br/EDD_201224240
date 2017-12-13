@@ -1,7 +1,5 @@
 #ifndef AVION_H
 #define AVION_H
-
-
 #include <stdlib.h>
 #include <stdio.h>
 #include "mantenimiento.h"

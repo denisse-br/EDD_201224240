@@ -28,13 +28,15 @@ SOURCES += \
         principal.cpp \
     avion.cpp \
     graficar.cpp \
-    mantenimiento.cpp
+    mantenimiento.cpp \
+    esperamantenimiento.cpp
 
 HEADERS += \
         principal.h \
     avion.h \
     graficar.h \
-    mantenimiento.h
+    mantenimiento.h \
+    esperamantenimiento.h
 
 FORMS += \
         principal.ui
