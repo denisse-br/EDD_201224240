@@ -15,5 +15,6 @@ typedef tipoMantenimiento *nodoM;
 typedef tipoMantenimiento *listasimple;
 
 void insertarEstacion(listasimple *ls,int id, int idAvion, int estado, int restante);
+void modificarEstacion(listasimple *ls, int idAvion, int estado, int restante);
 
 #endif // MANTENIMIENTO_H

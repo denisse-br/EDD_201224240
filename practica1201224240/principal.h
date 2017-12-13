@@ -17,7 +17,7 @@ public:
     listadoble ld;
     listasimple ls;
     int contador=1,turno, escritorio,mantenimiento,aviones;
-    int ranav,ranpas,ranman,des;//aviones
+    int ranav,ranpas,ranman,des,contadorav=1;//aviones
     QString tama;
 
     ~principal();

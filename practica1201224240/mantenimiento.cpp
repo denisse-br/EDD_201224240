@@ -20,3 +20,20 @@ void insertarEstacion(listasimple *ls,int id, int idAvion, int estado, int resta
             actual->nxtman = nuevo;
         }
 }
+
+void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante){
+    nodoM aux=*ls;
+    if((*ls)){
+        while(aux!=NULL){
+            if(aux->estado==0){
+                aux->idAvion=idAvion;
+                aux->restantes=restante;
+                aux->estado=estado;
+                break;
+            }else{
+            aux=aux->nxtman;
+            }
+        }
+
+    }
+}

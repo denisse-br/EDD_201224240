@@ -1,5 +1,5 @@
 #include "avion.h"
-
+#include "mantenimiento.h"
 void insertar(listadoble *l, int id, int tam, int pasajero, int turno, int servicio){
 nodo nuevo, actual;
 nuevo=(nodo)malloc(sizeof(tipoAvion));
@@ -61,7 +61,7 @@ nodo pivote=*l;
     }
 }
 
-void restar(listadoble *l){
+void restar(listadoble *l, listasimple *ls){
     nodo aux=*l;
     if((*l)){
         if(aux->ant==NULL){
@@ -77,7 +77,9 @@ void restar(listadoble *l){
                     }else{
                         while(pivote!=NULL){
                             if(pivote->turnos==0){
+                                modificarEstacion(ls,pivote->id,1,pivote->mantenimiento);
                                 printf("elemento encontrado\n");
+
                                 if(pivote==*l &&pivote->nxt==NULL){//1 elemento
                                     *l=NULL;
                                 }else if(pivote==*l){//principio
