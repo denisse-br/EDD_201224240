@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 typedef struct nodoAvion {
+   int id;
    int tipo;
    int pasajeros;
    int turnos;
@@ -16,8 +17,9 @@ typedef struct nodoAvion {
 typedef tipoAvion *nodo;
 typedef tipoAvion *listadoble;
 
-void insertar(listadoble *l, int tam, int pasajero, int turno, int servicio);
+void insertar(listadoble *l,int id, int tam, int pasajero, int turno, int servicio);
 void borrar(listadoble *l);
 void mostrar(listadoble *l);
+void restar(listadoble *l);
 
 #endif // AVION_H

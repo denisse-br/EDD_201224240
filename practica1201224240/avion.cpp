@@ -1,8 +1,9 @@
 #include "avion.h"
 
-void insertar(listadoble *l, int tam,int pasajero,int turno, int servicio){
+void insertar(listadoble *l, int id, int tam, int pasajero, int turno, int servicio){
 nodo nuevo, actual;
 nuevo=(nodo)malloc(sizeof(tipoAvion));
+nuevo->id=id;
 nuevo->tipo=tam;
 nuevo->pasajeros=pasajero;
 nuevo->turnos=turno;
@@ -33,6 +34,7 @@ void mostrar(listadoble *l){
         }
     }
 }
+
 void borrar(listadoble *l){
 nodo pivote=*l;
     if(!(*l)){
@@ -40,7 +42,6 @@ nodo pivote=*l;
     }else{
         while(pivote!=NULL){
             if(pivote->turnos==0){
-                nodo auxant,auxnxt;
                 printf("elemento encontrado\n");
                 if(pivote==*l &&pivote->nxt==NULL){//1 elemento
                     *l=NULL;
@@ -48,15 +49,6 @@ nodo pivote=*l;
                     *l=pivote->nxt;
                     (*l)->ant=NULL;
                     free(pivote);
-                }else{//el resto
-                    if(pivote->nxt==NULL){
-                        pivote->ant->nxt=NULL;
-                        free(pivote);
-                    }else{
-                        pivote->ant->nxt=pivote->nxt;
-                        pivote->nxt->ant=pivote->ant;
-                        free(pivote);
-                    }
                 }
                 printf("elemento eliminado\n");
                 break;
@@ -66,5 +58,44 @@ nodo pivote=*l;
             }
         }
         printf("elemento a eliminar no encontrado\n");
+    }
+}
+
+void restar(listadoble *l){
+    nodo aux=*l;
+    if((*l)){
+        if(aux->ant==NULL){
+            if(aux->turnos>0){
+                aux->turnos=aux->turnos-1;
+                printf("id: %d ",aux->id);
+                printf("turno: %d\n",aux->turnos);
+            }
+            else if(aux->turnos==0){
+                nodo pivote=*l;
+                    if(!(*l)){
+                        printf("lista vacia, nada que eliminar\n");
+                    }else{
+                        while(pivote!=NULL){
+                            if(pivote->turnos==0){
+                                printf("elemento encontrado\n");
+                                if(pivote==*l &&pivote->nxt==NULL){//1 elemento
+                                    *l=NULL;
+                                }else if(pivote==*l){//principio
+                                    *l=pivote->nxt;
+                                    (*l)->ant=NULL;
+                                    free(pivote);
+                                }
+                                printf("elemento eliminado\n");
+                                break;
+                            }
+                            else{
+                                pivote=pivote->nxt;
+                            }
+                        }
+                        printf("elemento a eliminar no encontrado\n");
+                    }
+            }
+
+        }
     }
 }

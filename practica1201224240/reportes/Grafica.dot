@@ -1,0 +1,18 @@
+digraph{ 
+ rankdir=LR; 
+ node[shape = record, color = black];subgraph clusterAeropuerto{ 
+label = "AEROPUERTO"; 
+	  subgraph clusterAviones{ 
+	  label = "AVIONES"; 
+		 a0[label="2"];
+		 a1[label="3"];
+		 a2[label="4"];
+		 a3[label="5"];
+	 }a0->a1
+a1->a2
+a1->a0
+a2->a3
+a2->a1
+a3->a2
+}
+}
