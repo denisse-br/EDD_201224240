@@ -21,5 +21,6 @@ void insertar(listadoble *l,int id, int tam, int pasajero, int turno, int servic
 void borrar(listadoble *l);
 void mostrar(listadoble *l);
 void restar(listadoble *l, listasimple *ls, iniciocp *c);
+bool vacia(listadoble *l);
 
 #endif // AVION_H

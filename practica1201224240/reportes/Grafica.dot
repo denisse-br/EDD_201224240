@@ -4,11 +4,11 @@ digraph{
 label = "AEROPUERTO"; 
 	  subgraph clusterAviones{ 
 	  label = "AVIONES"; 
-		 a0[label="ID: 3\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 2 "];
-		 a1[label="ID: 4\n Tamaño: Grande\n Pasajeros: 37\n Turnos en mantenimiento: 4 "];
-		 a2[label="ID: 5\n Tamaño: Mediano\n Pasajeros: 23\n Turnos en mantenimiento: 3 "];
-		 a3[label="ID: 6\n Tamaño: Grande\n Pasajeros: 33\n Turnos en mantenimiento: 5 "];
-		 a4[label="ID: 7\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 1 "];
+		 a0[label="ID avion: 4\n Tamaño: Grande\n Pasajeros: 37\n Turnos en mantenimiento: 4 "];
+		 a1[label="ID avion: 5\n Tamaño: Mediano\n Pasajeros: 23\n Turnos en mantenimiento: 3 "];
+		 a2[label="ID avion: 6\n Tamaño: Grande\n Pasajeros: 33\n Turnos en mantenimiento: 5 "];
+		 a3[label="ID avion: 7\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 1 "];
+		 a4[label="ID avion: 8\n Tamaño: Pequeño\n Pasajeros: 7\n Turnos en mantenimiento: 1 "];
 }
 a0->a1
 a1->a2
@@ -20,9 +20,9 @@ a3->a2
 a4->a3
 	  subgraph clusterlistaSim{ 
 	  label = "ESTACIONES DE MANTENIMIENTO"; 
-		 b0[label="ID estacion: 1\nEstado: Ocupado\nAvion atendido: 1\nTurnos restantes: 5"];
+		 b0[label="ID estacion: 2\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
 	 }	  subgraph clusterlistaCola{ 
 	  label = "COLA DE ESPERA"; 
-		 c0[label="ID: 2\nTurnos a Esperar: 3\n "];
+		 c0[label="ID avion: 3\nTurnos a Esperar: 2\n "];
 	 }}
 }

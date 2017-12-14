@@ -59,15 +59,21 @@ void principal::on_pushButton_clicked()
      }
      contadorav++;
      ui->consola->setText("***INICIO***");
+     ui->consola->append("AVIONES QUE SE INSERTARAN: "+QString::number(aviones));
+     ui->consola->append("ESCRITORIOS DE REGISTRO: "+QString::number(escritorio));
+     ui->consola->append("ESTACIONES DE MANTENIMIENTO: "+QString::number(mantenimiento));
+     ui->consola->append("TURNOS DEL SISTEMA: "+QString::number(turno));
+     ui->consola->append("***********************************");
+     ui->consola->append("\n");
      ui->consola->append("[TURNO: "+QString::number(contador)+"]");
      ui->consola->append("Arribó avion "+tama);
      ui->consola->append("ID avion: "+QString::number(contador));
      ui->consola->append("Avion desabordando: Ninguno");
-     ui->consola->append("TURNOS: "+QString::number(turno));
-     ui->consola->append("AVIONES: "+QString::number(aviones));
-     ui->consola->append("ESCRITORIOS: "+QString::number(escritorio));
-     ui->consola->append("ESTACIONES: "+QString::number(mantenimiento));
      ui->consola->append("***********************************");
+
+
+
+
      contador++;
      graficar *g = new graficar(&ld,&ls,&c);
      ui->btnsig->setEnabled(true);
@@ -118,20 +124,29 @@ void principal::on_btnsig_clicked()
 
         }
 
+        if(vacia(&ld)){
+             ui->consola->append("Todos los aviones han desabordado");
+        }else{
         if(ld->turnos>0){
             ui->consola->append("Avion desabordando:"+QString::number(ld->id));
             restar(&ld,&ls,&c);
         }else{
-            restar(&ld,&ls,&c);
-            restar(&ld,&ls,&c);
-            ui->consola->append("Avion desabordando:"+QString::number(ld->id));
-        }
+                restar(&ld,&ls,&c);
+                if(vacia(&ld)){
+                    ui->consola->append("Todos los aviones han desabordado");
+                }else{
+                 restar(&ld,&ls,&c);
+                 ui->consola->append("Avion desabordando:"+QString::number(ld->id));
+                }
 
+          }
+        }
+        restarMan(&ls,&c);
 
 
 
         ui->consola->append("***********************************");
-         graficar *g = new graficar(&ld, &ls,&c);
+        graficar *g = new graficar(&ld, &ls,&c);
     }
     contador++;
     contadorav++;

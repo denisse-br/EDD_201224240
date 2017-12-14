@@ -6,17 +6,13 @@ graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c)
     fprintf(grafico, "digraph{ \n rankdir=LR; \n node[shape = record, color = black];");
     fprintf(grafico, "subgraph clusterAeropuerto{ \n");
     fprintf(grafico, "label = \"AEROPUERTO\"; \n");
-
-        fprintf(grafico,"\t  subgraph clusterAviones{ \n");
-        fprintf(grafico,"\t  label = \"AVIONES\"; \n");
-            graficardoble(ld);
-
-     graficarsimple(ls);
-     graficacola(c);
-     fprintf(grafico, "}\n");
-     fprintf(grafico, "}\n");
-     fclose(grafico);
-     system("dot -Tjpg C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot -o C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
+    graficardoble(ld);
+    graficarsimple(ls);
+    graficacola(c);
+    fprintf(grafico, "}\n");
+    fprintf(grafico, "}\n");
+    fclose(grafico);
+    system("dot -Tjpg C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot -o C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
 
 
 }
@@ -24,17 +20,18 @@ graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c)
 void graficar::graficardoble(listadoble *ld){
     nodo avion=*ld;
     int nodo=0;
-
+    fprintf(grafico,"\t  subgraph clusterAviones{ \n");
+    fprintf(grafico,"\t  label = \"AVIONES\"; \n");
    if(avion!=NULL){
 
        while(avion!=NULL){
            if(avion->tipo==1){
-               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Pequeño\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+               fprintf(grafico,"\t\t a%d[label=\"ID avion: %d\\n Tamaño: Pequeño\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
            }else if(avion->tipo==2){
-               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Mediano\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+               fprintf(grafico,"\t\t a%d[label=\"ID avion: %d\\n Tamaño: Mediano\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
            }
            else if(avion->tipo==3){
-               fprintf(grafico,"\t\t a%d[label=\"ID: %d\\n Tamaño: Grande\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
+               fprintf(grafico,"\t\t a%d[label=\"ID avion: %d\\n Tamaño: Grande\\n Pasajeros: %d\\n Turnos en mantenimiento: %d \"];\n",nodo, avion->id,avion->pasajeros,avion->mantenimiento);
            }
 
            nodo++;
@@ -57,6 +54,8 @@ void graficar::graficardoble(listadoble *ld){
 
 
 
+   }else{
+       fprintf(grafico, "}\n");
    }
 
 }
@@ -104,7 +103,7 @@ void graficar::graficacola(iniciocp *c){
     fprintf(grafico,"\t  label = \"COLA DE ESPERA\"; \n");
     if(actual!=NULL){
         while (actual!=NULL) {
-               fprintf(grafico,"\t\t c%d[label=\"ID: %d\\nTurnos a Esperar: %d\\n \"];\n",nodo, actual->idavion,actual->turnos);
+               fprintf(grafico,"\t\t c%d[label=\"ID avion: %d\\nTurnos a Esperar: %d\\n \"];\n",nodo, actual->idavion,actual->turnos);
 
             nodo++;
             actual=actual->nxtc;

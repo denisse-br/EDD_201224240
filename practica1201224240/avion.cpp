@@ -101,3 +101,12 @@ void restar(listadoble *l, listasimple *ls,iniciocp *c){
         }
     }
 }
+
+
+bool vacia(listadoble *l){
+    if(!(*l)){
+        return true;
+    }else{
+        return false;
+    }
+}

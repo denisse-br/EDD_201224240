@@ -23,12 +23,17 @@ void insertarEstacion(listasimple *ls,int id, int idAvion, int estado, int resta
 
 void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante,iniciocp *c){
     nodoM aux=*ls;
+    iniciocp auxc;
     if((*ls)){
         while(aux!=NULL){
             if(aux->estado==0){
                 if((*c)){
-                    sacarC(c);
-                }else{
+                    auxc=sacarC(c);
+                    if(aux!=NULL){
+                        aux->id=auxc->idavion;
+                        aux->restantes-auxc->turnos;
+                    }
+                 }else{
                     aux->idAvion=idAvion;
                     aux->restantes=restante;
                     aux->estado=estado;
@@ -42,5 +47,30 @@ void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante,inici
             insertarColaP(idAvion,restante,c);
         }
 
+    }
+}
+
+
+void restarMan(listasimple *ls, iniciocp *c){
+    nodoM aux=*ls;
+    iniciocp auxc;
+    if((*ls)){
+        while(aux!=NULL){
+            if(aux->estado==1){
+                if(aux->restantes==1){
+                    aux->idAvion=0;
+                    aux->estado=0;
+                    aux->restantes=0;
+                    auxc=sacarC(c);
+                    if(aux!=NULL){
+                        aux->id=auxc->idavion;
+                        aux->restantes-auxc->turnos;
+                    }
+                }else{
+                aux->restantes=aux->restantes-1;
+                }
+            }
+            aux=aux->nxtman;
+        }
     }
 }
