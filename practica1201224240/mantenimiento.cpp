@@ -32,6 +32,8 @@ void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante,inici
                     if(aux!=NULL){
                         aux->id=auxc->idavion;
                         aux->restantes-auxc->turnos;
+                    }else{
+                        printf("nodo nulo");
                     }
                  }else{
                     aux->idAvion=idAvion;
@@ -65,6 +67,8 @@ void restarMan(listasimple *ls, iniciocp *c){
                     if(aux!=NULL){
                         aux->id=auxc->idavion;
                         aux->restantes-auxc->turnos;
+                    }else{
+                        printf("nodo nulo");
                     }
                 }else{
                 aux->restantes=aux->restantes-1;

@@ -9,6 +9,7 @@ label = "AEROPUERTO";
 		 a2[label="ID avion: 6\n Tamaño: Grande\n Pasajeros: 33\n Turnos en mantenimiento: 5 "];
 		 a3[label="ID avion: 7\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 1 "];
 		 a4[label="ID avion: 8\n Tamaño: Pequeño\n Pasajeros: 7\n Turnos en mantenimiento: 1 "];
+		 a5[label="ID avion: 9\n Tamaño: Mediano\n Pasajeros: 22\n Turnos en mantenimiento: 2 "];
 }
 a0->a1
 a1->a2
@@ -17,7 +18,9 @@ a2->a3
 a2->a1
 a3->a4
 a3->a2
+a4->a5
 a4->a3
+a5->a4
 	  subgraph clusterlistaSim{ 
 	  label = "ESTACIONES DE MANTENIMIENTO"; 
 		 b0[label="ID estacion: 2\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
