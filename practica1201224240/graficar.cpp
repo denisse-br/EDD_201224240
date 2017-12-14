@@ -1,6 +1,6 @@
 #include "graficar.h"
 
-graficar::graficar(listadoble *ld,listasimple *ls)
+graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c)
 {
     grafico = fopen("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot", "w+");
     fprintf(grafico, "digraph{ \n rankdir=LR; \n node[shape = record, color = black];");
@@ -10,8 +10,10 @@ graficar::graficar(listadoble *ld,listasimple *ls)
         fprintf(grafico,"\t  subgraph clusterAviones{ \n");
         fprintf(grafico,"\t  label = \"AVIONES\"; \n");
             graficardoble(ld);
-     fprintf(grafico, "}\n");
+
      graficarsimple(ls);
+     graficacola(c);
+     fprintf(grafico, "}\n");
      fprintf(grafico, "}\n");
      fclose(grafico);
      system("dot -Tjpg C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot -o C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
@@ -38,7 +40,7 @@ void graficar::graficardoble(listadoble *ld){
            nodo++;
            avion=avion->nxt;
        }
-       fprintf(grafico, "\t }");
+       fprintf(grafico, "}\n");
        for(int i=0;i<nodo;i++){
            if(i == 0 && i != nodo-1){
                fprintf(grafico,"a%d->a%d\n", i, i+1);
@@ -55,8 +57,6 @@ void graficar::graficardoble(listadoble *ld){
 
 
 
-   }else{
-       fprintf(grafico, "\t }");
    }
 
 }
@@ -95,4 +95,26 @@ void graficar::graficarsimple(listasimple *ls){
         }
 
 
+}
+
+void graficar::graficacola(iniciocp *c){
+    iniciocp actual=*c;
+    int nodo=0;
+    fprintf(grafico,"\t  subgraph clusterlistaCola{ \n");
+    fprintf(grafico,"\t  label = \"COLA DE ESPERA\"; \n");
+    if(actual!=NULL){
+        while (actual!=NULL) {
+               fprintf(grafico,"\t\t c%d[label=\"ID: %d\\nTurnos a Esperar: %d\\n \"];\n",nodo, actual->idavion,actual->turnos);
+
+            nodo++;
+            actual=actual->nxtc;
+        }
+        for(int i=0;i<nodo;i++){
+            if(i!=nodo-1){
+               fprintf(grafico,"c%d->c%d\n",  i, i+1);
+            }
+
+        }
+    }
+    fprintf(grafico, "\t }");
 }

@@ -61,7 +61,7 @@ nodo pivote=*l;
     }
 }
 
-void restar(listadoble *l, listasimple *ls){
+void restar(listadoble *l, listasimple *ls,iniciocp *c){
     nodo aux=*l;
     if((*l)){
         if(aux->ant==NULL){
@@ -77,7 +77,7 @@ void restar(listadoble *l, listasimple *ls){
                     }else{
                         while(pivote!=NULL){
                             if(pivote->turnos==0){
-                                modificarEstacion(ls,pivote->id,1,pivote->mantenimiento);
+                                modificarEstacion(ls,pivote->id,1,pivote->mantenimiento,c);
                                 printf("elemento encontrado\n");
 
                                 if(pivote==*l &&pivote->nxt==NULL){//1 elemento

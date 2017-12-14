@@ -24,7 +24,7 @@ void principal::on_pushButton_clicked()
 {
     ld=NULL;
     ls=NULL;
-
+    c=NULL;
     if(ui->txtavion->text()==""||ui->txtescritorio->text()==""||ui->txtmantenimiento->text()==""||ui->txtturnos->text()==""){
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
     }
@@ -69,7 +69,7 @@ void principal::on_pushButton_clicked()
      ui->consola->append("ESTACIONES: "+QString::number(mantenimiento));
      ui->consola->append("***********************************");
      contador++;
-     graficar *g = new graficar(&ld,&ls);
+     graficar *g = new graficar(&ld,&ls,&c);
      ui->btnsig->setEnabled(true);
     }
 
@@ -77,7 +77,7 @@ void principal::on_pushButton_clicked()
 
 void principal::on_btnsig_clicked()
 {
-    restar(&ld,&ls);
+
     if(contador>turno){
         QMessageBox::information(this,"FIN","los turnos\nhan terminado");
         mostrar(&ld);
@@ -115,14 +115,23 @@ void principal::on_btnsig_clicked()
             }
             ui->consola->append("Arribó avion "+tama);
             ui->consola->append("ID avion: "+QString::number(contador));
+
+        }
+
+        if(ld->turnos>0){
+            ui->consola->append("Avion desabordando:"+QString::number(ld->id));
+            restar(&ld,&ls,&c);
+        }else{
+            restar(&ld,&ls,&c);
+            restar(&ld,&ls,&c);
+            ui->consola->append("Avion desabordando:"+QString::number(ld->id));
         }
 
 
-        ui->consola->append("Avion desabordando:"+QString::number(ld->id));
 
 
         ui->consola->append("***********************************");
-         graficar *g = new graficar(&ld, &ls);
+         graficar *g = new graficar(&ld, &ls,&c);
     }
     contador++;
     contadorav++;

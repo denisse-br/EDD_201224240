@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "mantenimiento.h"
+#include "esperamantenimiento.h"
 typedef struct nodoAvion {
    int id;
    int tipo;
@@ -19,6 +20,6 @@ typedef tipoAvion *listadoble;
 void insertar(listadoble *l,int id, int tam, int pasajero, int turno, int servicio);
 void borrar(listadoble *l);
 void mostrar(listadoble *l);
-void restar(listadoble *l,listasimple *ls);
+void restar(listadoble *l, listasimple *ls, iniciocp *c);
 
 #endif // AVION_H

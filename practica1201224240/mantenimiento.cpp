@@ -1,5 +1,5 @@
 #include "mantenimiento.h"
-
+#include "esperamantenimiento.h"
 void insertarEstacion(listasimple *ls,int id, int idAvion, int estado, int restante){
     nodoM nuevo, actual;
     //Crear un nodo nuevo
@@ -21,18 +21,25 @@ void insertarEstacion(listasimple *ls,int id, int idAvion, int estado, int resta
         }
 }
 
-void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante){
+void modificarEstacion(listasimple *ls,int idAvion,int estado,int restante,iniciocp *c){
     nodoM aux=*ls;
     if((*ls)){
         while(aux!=NULL){
             if(aux->estado==0){
-                aux->idAvion=idAvion;
-                aux->restantes=restante;
-                aux->estado=estado;
-                break;
+                if((*c)){
+                    sacarC(c);
+                }else{
+                    aux->idAvion=idAvion;
+                    aux->restantes=restante;
+                    aux->estado=estado;
+                    break;
+                }
             }else{
             aux=aux->nxtman;
             }
+        }
+        if(aux==NULL){
+            insertarColaP(idAvion,restante,c);
         }
 
     }
