@@ -25,16 +25,11 @@ else{
 
 iniciocp sacarC(iniciocp *primer){
 
-    if((*primer)->nxtc!=NULL){
+    if((*primer)!=NULL){
         iniciocp aux=*primer;
         *primer=(*primer)->nxtc;
         aux->nxtc=NULL;
         return aux;
-    }else{
-        *primer=NULL;
-        return NULL;
     }
-
-
-
+    return NULL;
 }

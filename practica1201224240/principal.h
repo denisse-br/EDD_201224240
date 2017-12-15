@@ -5,6 +5,8 @@
 #include "avion.h"
 #include "mantenimiento.h"
 #include "esperamantenimiento.h"
+
+#include <time.h>
 namespace Ui {
 class principal;
 }
@@ -18,6 +20,8 @@ public:
     listadoble ld;
     listasimple ls;
     iniciocp c;
+    iniciop pas;
+    int contadorp=0;
     int contador=1,turno, escritorio,mantenimiento,aviones;
     int ranav,ranpas,ranman,des,contadorav=1;//aviones
     QString tama;

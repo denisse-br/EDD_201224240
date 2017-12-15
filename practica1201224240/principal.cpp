@@ -22,9 +22,11 @@ principal::~principal()
 
 void principal::on_pushButton_clicked()
 {
+    srand(time(NULL));
     ld=NULL;
     ls=NULL;
     c=NULL;
+    pas=NULL;
     if(ui->txtavion->text()==""||ui->txtescritorio->text()==""||ui->txtmantenimiento->text()==""||ui->txtturnos->text()==""){
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
     }
@@ -69,13 +71,16 @@ void principal::on_pushButton_clicked()
      ui->consola->append("Arribó avion "+tama);
      ui->consola->append("ID avion: "+QString::number(contador));
      ui->consola->append("Avion desabordando: Ninguno");
+     imprimirconsola(ui->consola,&ls);
      ui->consola->append("***********************************");
 
 
 
 
      contador++;
-     graficar *g = new graficar(&ld,&ls,&c);
+
+
+     graficar *g = new graficar(&ld,&ls,&c,&pas);
      ui->btnsig->setEnabled(true);
     }
 
@@ -83,7 +88,7 @@ void principal::on_pushButton_clicked()
 
 void principal::on_btnsig_clicked()
 {
-
+    srand(time(NULL));
     if(contador>turno){
         QMessageBox::information(this,"FIN","los turnos\nhan terminado");
         mostrar(&ld);
@@ -129,13 +134,25 @@ void principal::on_btnsig_clicked()
         }else{
         if(ld->turnos>0){
             ui->consola->append("Avion desabordando:"+QString::number(ld->id));
-            restar(&ld,&ls,&c);
-        }else{
-                restar(&ld,&ls,&c);
+            int auxp;
+            if(!vacia(&ld)){
+                auxp=ld->pasajeros;
+            }
+            restar(&ld,&ls,&c,&pas);
+            /*if(ld->turnos == 0){
+                contadorp+=auxp;
+            }*/
+
+        }else{                
+                restar(&ld,&ls,&c,&pas);
                 if(vacia(&ld)){
                     ui->consola->append("Todos los aviones han desabordado");
                 }else{
-                 restar(&ld,&ls,&c);
+                 int auxp=ld->pasajeros;
+                 restar(&ld,&ls,&c,&pas);
+                 /*if(ld->turnos == 0){
+                     contadorp+=auxp;
+                 }*/
                  ui->consola->append("Avion desabordando:"+QString::number(ld->id));
                 }
 
@@ -144,9 +161,9 @@ void principal::on_btnsig_clicked()
         restarMan(&ls,&c);
 
 
-
+        imprimirconsola(ui->consola,&ls);
         ui->consola->append("***********************************");
-        graficar *g = new graficar(&ld, &ls,&c);
+        graficar *g = new graficar(&ld, &ls,&c,&pas);
     }
     contador++;
     contadorav++;

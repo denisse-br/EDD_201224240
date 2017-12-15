@@ -4,28 +4,96 @@ digraph{
 label = "AEROPUERTO"; 
 	  subgraph clusterAviones{ 
 	  label = "AVIONES"; 
-		 a0[label="ID avion: 4\n Tamaño: Grande\n Pasajeros: 37\n Turnos en mantenimiento: 4 "];
-		 a1[label="ID avion: 5\n Tamaño: Mediano\n Pasajeros: 23\n Turnos en mantenimiento: 3 "];
-		 a2[label="ID avion: 6\n Tamaño: Grande\n Pasajeros: 33\n Turnos en mantenimiento: 5 "];
-		 a3[label="ID avion: 7\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 1 "];
-		 a4[label="ID avion: 8\n Tamaño: Pequeño\n Pasajeros: 7\n Turnos en mantenimiento: 1 "];
-		 a5[label="ID avion: 9\n Tamaño: Mediano\n Pasajeros: 22\n Turnos en mantenimiento: 2 "];
+		 a0[label="ID avion: 2\n Tamaño: Pequeño\n Pasajeros: 7\n Turnos en mantenimiento: 2 "];
+		 a1[label="ID avion: 3\n Tamaño: Mediano\n Pasajeros: 19\n Turnos en mantenimiento: 2 "];
+		 a2[label="ID avion: 4\n Tamaño: Mediano\n Pasajeros: 20\n Turnos en mantenimiento: 2 "];
+		 a3[label="ID avion: 5\n Tamaño: Mediano\n Pasajeros: 22\n Turnos en mantenimiento: 2 "];
 }
 a0->a1
 a1->a2
 a1->a0
 a2->a3
 a2->a1
-a3->a4
 a3->a2
-a4->a5
-a4->a3
-a5->a4
 	  subgraph clusterlistaSim{ 
 	  label = "ESTACIONES DE MANTENIMIENTO"; 
-		 b0[label="ID estacion: 2\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
+		 b0[label="ID estacion: 1\nEstado: Ocupado\nAvion atendido: 1\nTurnos restantes: 3"];
+		 b1[label="ID estacion: 2\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
+b0->b1[constraint=true];
 	 }	  subgraph clusterlistaCola{ 
 	  label = "COLA DE ESPERA"; 
-		 c0[label="ID avion: 3\nTurnos a Esperar: 2\n "];
+	 }	  subgraph clusterlistaColaPas{ 
+	  label = "COLA DE PASAJEROS "; 
+		 c0[label="ID pasajero: 1\nMaletas: 1\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c1[label="ID pasajero: 2\nMaletas: 3\nDocumentos: 5\nTurnos a Esperar: 2\n "];
+		 c2[label="ID pasajero: 3\nMaletas: 1\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c3[label="ID pasajero: 4\nMaletas: 4\nDocumentos: 8\nTurnos a Esperar: 2\n "];
+		 c4[label="ID pasajero: 5\nMaletas: 4\nDocumentos: 7\nTurnos a Esperar: 1\n "];
+		 c5[label="ID pasajero: 6\nMaletas: 2\nDocumentos: 2\nTurnos a Esperar: 1\n "];
+		 c6[label="ID pasajero: 7\nMaletas: 2\nDocumentos: 5\nTurnos a Esperar: 3\n "];
+		 c7[label="ID pasajero: 8\nMaletas: 2\nDocumentos: 7\nTurnos a Esperar: 3\n "];
+		 c8[label="ID pasajero: 9\nMaletas: 3\nDocumentos: 2\nTurnos a Esperar: 3\n "];
+		 c9[label="ID pasajero: 10\nMaletas: 1\nDocumentos: 1\nTurnos a Esperar: 2\n "];
+		 c10[label="ID pasajero: 11\nMaletas: 4\nDocumentos: 3\nTurnos a Esperar: 2\n "];
+		 c11[label="ID pasajero: 12\nMaletas: 2\nDocumentos: 5\nTurnos a Esperar: 2\n "];
+		 c12[label="ID pasajero: 13\nMaletas: 1\nDocumentos: 5\nTurnos a Esperar: 1\n "];
+		 c13[label="ID pasajero: 14\nMaletas: 3\nDocumentos: 1\nTurnos a Esperar: 3\n "];
+		 c14[label="ID pasajero: 15\nMaletas: 2\nDocumentos: 8\nTurnos a Esperar: 1\n "];
+		 c15[label="ID pasajero: 16\nMaletas: 1\nDocumentos: 1\nTurnos a Esperar: 2\n "];
+		 c16[label="ID pasajero: 17\nMaletas: 4\nDocumentos: 1\nTurnos a Esperar: 3\n "];
+		 c17[label="ID pasajero: 18\nMaletas: 1\nDocumentos: 5\nTurnos a Esperar: 3\n "];
+		 c18[label="ID pasajero: 19\nMaletas: 1\nDocumentos: 6\nTurnos a Esperar: 2\n "];
+		 c19[label="ID pasajero: 20\nMaletas: 2\nDocumentos: 7\nTurnos a Esperar: 3\n "];
+		 c20[label="ID pasajero: 21\nMaletas: 3\nDocumentos: 5\nTurnos a Esperar: 2\n "];
+		 c21[label="ID pasajero: 22\nMaletas: 2\nDocumentos: 10\nTurnos a Esperar: 3\n "];
+		 c22[label="ID pasajero: 23\nMaletas: 1\nDocumentos: 5\nTurnos a Esperar: 3\n "];
+		 c23[label="ID pasajero: 24\nMaletas: 3\nDocumentos: 2\nTurnos a Esperar: 1\n "];
+		 c24[label="ID pasajero: 25\nMaletas: 4\nDocumentos: 2\nTurnos a Esperar: 3\n "];
+		 c25[label="ID pasajero: 26\nMaletas: 3\nDocumentos: 5\nTurnos a Esperar: 1\n "];
+		 c26[label="ID pasajero: 27\nMaletas: 3\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c27[label="ID pasajero: 28\nMaletas: 3\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c28[label="ID pasajero: 29\nMaletas: 4\nDocumentos: 7\nTurnos a Esperar: 1\n "];
+		 c29[label="ID pasajero: 30\nMaletas: 4\nDocumentos: 5\nTurnos a Esperar: 1\n "];
+		 c30[label="ID pasajero: 31\nMaletas: 3\nDocumentos: 9\nTurnos a Esperar: 3\n "];
+		 c31[label="ID pasajero: 32\nMaletas: 2\nDocumentos: 6\nTurnos a Esperar: 2\n "];
+		 c32[label="ID pasajero: 33\nMaletas: 1\nDocumentos: 8\nTurnos a Esperar: 3\n "];
+		 c33[label="ID pasajero: 34\nMaletas: 1\nDocumentos: 2\nTurnos a Esperar: 3\n "];
+		 c34[label="ID pasajero: 35\nMaletas: 3\nDocumentos: 2\nTurnos a Esperar: 3\n "];
+		 c35[label="ID pasajero: 36\nMaletas: 4\nDocumentos: 5\nTurnos a Esperar: 3\n "];
+c0->c1
+c1->c2
+c2->c3
+c3->c4
+c4->c5
+c5->c6
+c6->c7
+c7->c8
+c8->c9
+c9->c10
+c10->c11
+c11->c12
+c12->c13
+c13->c14
+c14->c15
+c15->c16
+c16->c17
+c17->c18
+c18->c19
+c19->c20
+c20->c21
+c21->c22
+c22->c23
+c23->c24
+c24->c25
+c25->c26
+c26->c27
+c27->c28
+c28->c29
+c29->c30
+c30->c31
+c31->c32
+c32->c33
+c33->c34
+c34->c35
 	 }}
 }

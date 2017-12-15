@@ -1,6 +1,6 @@
 #include "graficar.h"
 
-graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c)
+graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c,iniciop *p)
 {
     grafico = fopen("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot", "w+");
     fprintf(grafico, "digraph{ \n rankdir=LR; \n node[shape = record, color = black];");
@@ -9,6 +9,7 @@ graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c)
     graficardoble(ld);
     graficarsimple(ls);
     graficacola(c);
+    graficarcolap(p);
     fprintf(grafico, "}\n");
     fprintf(grafico, "}\n");
     fclose(grafico);
@@ -107,6 +108,27 @@ void graficar::graficacola(iniciocp *c){
 
             nodo++;
             actual=actual->nxtc;
+        }
+        for(int i=0;i<nodo;i++){
+            if(i!=nodo-1){
+               fprintf(grafico,"c%d->c%d\n",  i, i+1);
+            }
+
+        }
+    }
+    fprintf(grafico, "\t }");
+}
+
+void graficar::graficarcolap(iniciop *p){
+    iniciop actual=*p;
+    int nodo=0;
+    fprintf(grafico,"\t  subgraph clusterlistaColaPas{ \n");
+    fprintf(grafico,"\t  label = \"COLA DE PASAJEROS \"; \n");
+    if(actual!=NULL){
+        while (actual!=NULL) {
+               fprintf(grafico,"\t\t c%d[label=\"ID pasajero: %d\\nMaletas: %d\\nDocumentos: %d\\nTurnos a Esperar: %d\\n \"];\n",nodo, actual->idpas,actual->maletas,actual->docs,actual->turno);
+            nodo++;
+            actual=actual->nxtp;
         }
         for(int i=0;i<nodo;i++){
             if(i!=nodo-1){

@@ -61,7 +61,7 @@ nodo pivote=*l;
     }
 }
 
-void restar(listadoble *l, listasimple *ls,iniciocp *c){
+void restar(listadoble *l, listasimple *ls, iniciocp *c, iniciop *p){
     nodo aux=*l;
     if((*l)){
         if(aux->ant==NULL){
@@ -79,6 +79,16 @@ void restar(listadoble *l, listasimple *ls,iniciocp *c){
                             if(pivote->turnos==0){
                                 modificarEstacion(ls,pivote->id,1,pivote->mantenimiento,c);
                                 printf("elemento encontrado\n");
+                                int cp=pasajeros(p);
+                                srand(time(NULL));
+                                for(int i=1;i<=cp+pivote->pasajeros;i++){
+                                    int maletas,docs,turno;
+                                    maletas=rand()%(4-1+1)+1;
+                                    docs=rand()%(10-1+1)+1;
+                                    turno=rand()%(3-1+1)+1;
+                                    insertarPas(i,maletas,docs,turno,p);
+                                    //printf("\npasajeros: %d",i);
+                                }
 
                                 if(pivote==*l &&pivote->nxt==NULL){//1 elemento
                                     *l=NULL;
