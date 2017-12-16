@@ -1,15 +1,17 @@
 #include "graficar.h"
 
-graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c,iniciop *p)
+graficar::graficar(listadoble *ld, listasimple *ls, iniciocp *c, iniciop *p, listacircular *lc, listadobleE *lde)
 {
     grafico = fopen("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.dot", "w+");
-    fprintf(grafico, "digraph{ \n rankdir=LR; \n node[shape = record, color = black];");
+    fprintf(grafico, "digraph{\n node[shape = record, color = black];");
     fprintf(grafico, "subgraph clusterAeropuerto{ \n");
     fprintf(grafico, "label = \"AEROPUERTO\"; \n");
     graficardoble(ld);
     graficarsimple(ls);
     graficacola(c);
     graficarcolap(p);
+    graficarM(lc);
+    graficarE(lde);
     fprintf(grafico, "}\n");
     fprintf(grafico, "}\n");
     fclose(grafico);
@@ -138,4 +140,73 @@ void graficar::graficarcolap(iniciop *p){
         }
     }
     fprintf(grafico, "\t }");
+}
+
+void graficar::graficarM(listacircular *lcs){
+    nodocircular inicio=*lcs, aux=*lcs;
+    int nodo=0;
+    fprintf(grafico,"\t  subgraph clusterlistamaleta{ \n");
+    fprintf(grafico,"\t  label = \"MALETAS\"; \n");
+
+    if(inicio!=NULL){
+        fprintf(grafico,"\t\t d%d[label=\"ID pasajero: %d\\n Maleta#: %d\"];\n",nodo, aux->idpasajero,aux->nummaleta);
+        do{
+            fprintf(grafico,"\t\t d%d[label=\"ID pasajero: %d\\n Maleta#: %d\"];\n",nodo, aux->idpasajero,aux->nummaleta);
+            nodo++;
+            aux = aux->nextcir;
+        }while(aux != *lcs);
+        for(int i=0;i<=nodo/2;i++){
+            fprintf(grafico,"{rank=same d%d; d%d;}\n",i,nodo-1-i);
+        }
+        for(int i = 0; i <= nodo-1; i++){
+            if(i == nodo-1){
+                fprintf(grafico, "\t\t d%d->d%d[constraint=true];\n", i, 0);
+                fprintf(grafico, "\t\t d%d->d%d[constraint=true];\n", 0, i);
+            }else{
+                fprintf(grafico, "\t\t d%d->d%d[constraint=true];\n", i, i+1);
+                fprintf(grafico, "\t\t d%d->d%d[constraint=true];\n", i+1, i);
+            }
+        }
+        fprintf(grafico, "\t }");
+
+
+    }else{
+        fprintf(grafico, "\t }");
+    }
+}
+
+
+void graficar::graficarE(listadobleE *ld){
+    nodoE escritorio=*ld;
+    int nodo=0;
+    fprintf(grafico,"\t  subgraph clusterEscritorios{ \n");
+    fprintf(grafico,"\t  label = \"ESCRITORIOS\"; \n");
+   if(escritorio!=NULL){
+
+       while(escritorio!=NULL){
+          fprintf(grafico,"\t\t e%d[label=\"ID escritorio: %c\\n \"];\n",nodo, escritorio->id);
+          nodo++;
+          escritorio=escritorio->nxte;
+       }
+       fprintf(grafico, "}\n");
+       for(int i=0;i<nodo;i++){
+           if(i == 0 && i != nodo-1){
+               fprintf(grafico,"e%d->e%d\n", i, i+1);
+           }else if(i != nodo-1){
+               fprintf(grafico,"e%d->e%d\n", i, i+1);
+               fprintf(grafico,"e%d->e%d\n", i, i-1);
+           }else{
+               if(i == nodo-1 && i != 0){
+                   fprintf(grafico,"e%d->e%d\n", i, i-1);
+               }
+           }
+       }
+
+
+
+
+   }else{
+       fprintf(grafico, "}\n");
+   }
+
 }

@@ -13,5 +13,6 @@ struct maletas *anteriorcir;
 typedef tipoCircular *nodocircular;
 typedef tipoCircular *listacircular;
 
-void insertar(int id, int num, listacircular *listac);
+void insertarm(int id, int num, listacircular *listac);
+void borrar(listacircular *lc, int id);
 #endif // MALETAS_H

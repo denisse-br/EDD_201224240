@@ -27,6 +27,8 @@ void principal::on_pushButton_clicked()
     ls=NULL;
     c=NULL;
     pas=NULL;
+    lc=NULL;
+    le=NULL;
     if(ui->txtavion->text()==""||ui->txtescritorio->text()==""||ui->txtmantenimiento->text()==""||ui->txtturnos->text()==""){
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
     }
@@ -78,9 +80,22 @@ void principal::on_pushButton_clicked()
 
 
      contador++;
+     char ide;
+     int idec;
+     srand(time(NULL));
+     if(escritorio<=27){
+         for(int i=0;i<escritorio;i++){
+             idec=rand()%(90-65+1)+65;
+             while(existe(&le,ide)){
+                 idec=rand()%(90-65+1)+65;
+             }
+             insertarEscritorio(&le,(char)idec);
+         }
+     }
 
+     mostrare(&le);
 
-     graficar *g = new graficar(&ld,&ls,&c,&pas);
+     graficar *g = new graficar(&ld,&ls,&c,&pas,&lc,&le);
      ui->btnsig->setEnabled(true);
     }
 
@@ -138,18 +153,18 @@ void principal::on_btnsig_clicked()
             if(!vacia(&ld)){
                 auxp=ld->pasajeros;
             }
-            restar(&ld,&ls,&c,&pas);
+            restar(&ld,&ls,&c,&pas,&lc);
             /*if(ld->turnos == 0){
                 contadorp+=auxp;
             }*/
 
         }else{                
-                restar(&ld,&ls,&c,&pas);
+                restar(&ld,&ls,&c,&pas,&lc);
                 if(vacia(&ld)){
                     ui->consola->append("Todos los aviones han desabordado");
                 }else{
                  int auxp=ld->pasajeros;
-                 restar(&ld,&ls,&c,&pas);
+                 restar(&ld,&ls,&c,&pas,&lc);
                  /*if(ld->turnos == 0){
                      contadorp+=auxp;
                  }*/
@@ -163,7 +178,7 @@ void principal::on_btnsig_clicked()
 
         imprimirconsola(ui->consola,&ls);
         ui->consola->append("***********************************");
-        graficar *g = new graficar(&ld, &ls,&c,&pas);
+        graficar *g = new graficar(&ld, &ls,&c,&pas,&lc,&le);
     }
     contador++;
     contadorav++;

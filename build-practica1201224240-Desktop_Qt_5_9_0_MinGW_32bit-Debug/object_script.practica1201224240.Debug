@@ -1,0 +1,12 @@
+INPUT(
+./debug\main.o
+./debug\principal.o
+./debug\avion.o
+./debug\graficar.o
+./debug\mantenimiento.o
+./debug\esperamantenimiento.o
+./debug\pasajeros.o
+./debug\maletas.o
+./debug\escritorio.o
+./debug\moc_principal.o
+);

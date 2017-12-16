@@ -25,7 +25,7 @@ void insertarPas( int id,int maletas,int docs,int turno, iniciop *cola){
 
 int pasajeros(iniciop *cola){
     iniciop aux=*cola;
-    int contador=0;
+    int contador=1;
     if((*cola)){
         while(aux->nxtp!=NULL){
             contador++;

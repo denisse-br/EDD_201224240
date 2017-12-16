@@ -1,6 +1,6 @@
 #include "maletas.h"
 
-void insertar(int id, int num, listacircular *listac){
+void insertarm(int id, int num, listacircular *listac){
     nodocircular nuevo, actual=*listac;
     nuevo= (nodocircular)malloc(sizeof(tipoCircular));
     nuevo->idpasajero=id;

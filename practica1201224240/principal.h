@@ -5,7 +5,7 @@
 #include "avion.h"
 #include "mantenimiento.h"
 #include "esperamantenimiento.h"
-
+#include "escritorio.h"
 #include <time.h>
 namespace Ui {
 class principal;
@@ -21,6 +21,8 @@ public:
     listasimple ls;
     iniciocp c;
     iniciop pas;
+    listacircular lc;
+    listadobleE le;
     int contadorp=0;
     int contador=1,turno, escritorio,mantenimiento,aviones;
     int ranav,ranpas,ranman,des,contadorav=1;//aviones

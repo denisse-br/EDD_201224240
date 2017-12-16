@@ -31,7 +31,8 @@ SOURCES += \
     mantenimiento.cpp \
     esperamantenimiento.cpp \
     pasajeros.cpp \
-    maletas.cpp
+    maletas.cpp \
+    escritorio.cpp
 
 HEADERS += \
         principal.h \
@@ -40,7 +41,8 @@ HEADERS += \
     mantenimiento.h \
     esperamantenimiento.h \
     pasajeros.h \
-    maletas.h
+    maletas.h \
+    escritorio.h
 
 FORMS += \
         principal.ui
