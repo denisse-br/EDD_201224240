@@ -91,3 +91,7 @@ void imprimirconsolaE(QTextEdit *consola, listadobleE *le){
         }
     }
 }
+
+void asignar(){
+    
+}

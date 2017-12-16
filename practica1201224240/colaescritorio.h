@@ -14,5 +14,5 @@ typedef tipoColaE *inicioce;
 //typedef tipoCola *cola;
 
 void insertarColaE(int idpa,int turnos,int docs, inicioce *cola);
-void sacarC(inicioce *ultimo);
+inicioce sacarC(inicioce *ultimo);
 #endif // COLAESCRITORIO_H

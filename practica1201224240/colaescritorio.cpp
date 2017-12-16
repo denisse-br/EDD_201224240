@@ -22,3 +22,13 @@ void insertarColaE(int idpa,int turnos,int docs, inicioce *cola){
         //*cola=nuevo;
     }
 }
+
+inicioce sacarC(inicioce *ultimo){
+    if((*ultimo)!=NULL){
+        inicioce aux=*ultimo;
+        *ultimo=(*ultimo)->nxtce;
+        aux->nxtce=NULL;
+        return aux;
+    }
+    return NULL;
+}
