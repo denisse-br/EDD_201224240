@@ -1,6 +1,7 @@
 #include "escritorio.h"
+#include "string.h"
 
-void insertarEscritorio(listadobleE *le,char id){
+void insertarEscritorio(listadobleE *le, char id, int idPas, int turno){
     nodoE nuevo, actual;
     nuevo=(nodoE)malloc(sizeof(tipoEscritorio));
     nuevo->id=id;
@@ -23,6 +24,7 @@ void insertarEscritorio(listadobleE *le,char id){
                 aux=aux->nxte;
             }
             if(aux->nxte==NULL){
+                nuevo->nxte=NULL;
                 aux->nxte=nuevo;
                 nuevo->ante=aux;
             }else{
@@ -31,6 +33,7 @@ void insertarEscritorio(listadobleE *le,char id){
                 aux->nxte->ante=nuevo;
                 aux->nxte=nuevo;
             }
+
         }
     }
 }
@@ -54,11 +57,35 @@ bool existe(listadobleE *le,char val){
     if(!(*le)){
         return false;
     }else{
+        printf("\nentro else");
         while(actual!=NULL){
-            if(actual->id==val){
+            if((int)actual->id==(int)val){
+                printf("se encontro igual");
                 return true;
             }
             actual=actual->nxte;
+        }
+        return false;
+    }
+}
+
+void imprimirconsolaE(QTextEdit *consola, listadobleE *le){
+    consola->append("****INFORMACION DE ESCRITORIOS****");
+    if((*le)){
+        nodoE aux=*le;
+        while(aux!=NULL){
+            if(aux->idPas==0){
+                consola->append("ID escritorio "+QString(aux->id)+": Disponible");
+            }else{
+                consola->append("ID escritorio "+QString(aux->id)+": Ocupado");
+                consola->append("\tID Pasajero: "+QString::number(aux->idPas));
+            }
+            if(aux->turnos==0){
+                consola->append("\tTurnos: Ninguno ");
+            }else{
+                consola->append("\tTurnos: "+QString::number(aux->turnos));
+            }
+            aux=aux->nxte;
         }
     }
 }

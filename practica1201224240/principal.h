@@ -23,6 +23,7 @@ public:
     iniciop pas;
     listacircular lc;
     listadobleE le;
+    QPixmap pixmap;
     int contadorp=0;
     int contador=1,turno, escritorio,mantenimiento,aviones;
     int ranav,ranpas,ranman,des,contadorav=1;//aviones
@@ -35,6 +36,8 @@ private slots:
 
 
     void on_btnsig_clicked();
+
+    void on_pushButton_2_clicked();
 
 private:
     Ui::principal *ui;

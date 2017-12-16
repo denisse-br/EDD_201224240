@@ -3,7 +3,7 @@ digraph{
 label = "AEROPUERTO"; 
 	  subgraph clusterAviones{ 
 	  label = "AVIONES"; 
-		 a0[label="ID avion: 1\n Tamaño: Pequeño\n Pasajeros: 8\n Turnos en mantenimiento: 3 "];
+		 a0[label="ID avion: 1\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 3 "];
 }
 	  subgraph clusterlistaSim{ 
 	  label = "ESTACIONES DE MANTENIMIENTO"; 
@@ -18,9 +18,12 @@ b0->b1[constraint=true];
 	  label = "MALETAS"; 
 	 }	  subgraph clusterEscritorios{ 
 	  label = "ESCRITORIOS"; 
-		 e0[label="ID escritorio: N\n "];
-		 e1[label="ID escritorio: O\n "];
-		 e2[label="ID escritorio: X\n "];
+		 e0[label="ID escritorio: D\nID Pasajero: No asignado\nTurnos: 0
+ "];
+		 e1[label="ID escritorio: M\nID Pasajero: No asignado\nTurnos: 1
+ "];
+		 e2[label="ID escritorio: U\nID Pasajero: No asignado\nTurnos: 2
+ "];
 }
 e0->e1
 e1->e2

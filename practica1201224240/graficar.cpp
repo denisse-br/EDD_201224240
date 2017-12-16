@@ -184,7 +184,18 @@ void graficar::graficarE(listadobleE *ld){
    if(escritorio!=NULL){
 
        while(escritorio!=NULL){
-          fprintf(grafico,"\t\t e%d[label=\"ID escritorio: %c\\n \"];\n",nodo, escritorio->id);
+           fprintf(grafico,"\t\t e%d[label=\"ID escritorio: %c\\n",nodo, escritorio->id);
+           if(escritorio->idPas==0){
+              fprintf(grafico,"ID Pasajero: No asignado\\n",nodo);
+           }else{
+              fprintf(grafico,"ID Pasajero: %d\\n",nodo, escritorio->idPas);
+           }
+           if(escritorio->turnos==0){
+              fprintf(grafico,"Turnos: %d\n \"];\n",nodo, escritorio->turnos);
+           }else{
+              fprintf(grafico,"Turnos: %d\n \"];\n",nodo, escritorio->turnos);
+           }
+
           nodo++;
           escritorio=escritorio->nxte;
        }

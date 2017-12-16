@@ -8,5 +8,7 @@ INPUT(
 ./release\pasajeros.o
 ./release\maletas.o
 ./release\escritorio.o
+./release\colaescritorio.o
+./release\qrc_imagen.o
 ./release\moc_principal.o
 );

@@ -32,7 +32,8 @@ SOURCES += \
     esperamantenimiento.cpp \
     pasajeros.cpp \
     maletas.cpp \
-    escritorio.cpp
+    escritorio.cpp \
+    colaescritorio.cpp
 
 HEADERS += \
         principal.h \
@@ -42,7 +43,11 @@ HEADERS += \
     esperamantenimiento.h \
     pasajeros.h \
     maletas.h \
-    escritorio.h
+    escritorio.h \
+    colaescritorio.h
 
 FORMS += \
         principal.ui
+
+RESOURCES += \
+    imagen.qrc

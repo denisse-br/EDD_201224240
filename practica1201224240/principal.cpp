@@ -11,6 +11,8 @@ principal::principal(QWidget *parent) :
     ui->setupUi(this);
     ui->consola->setTextColor(QColor("white"));
     ui->btnsig->setEnabled(false);
+
+
     //ui->txtavion->inputMask("D");
     // int contador,turno, escritorio,mantenimiento,aviones;
 }
@@ -33,70 +35,81 @@ void principal::on_pushButton_clicked()
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
     }
     else{
-     ui->groupBox->setDisabled(true);
-     aviones=ui->txtavion->text().toInt();
-     escritorio=ui->txtescritorio->text().toInt();
-     mantenimiento=ui->txtmantenimiento->text().toInt();
-     turno=ui->txtturnos->text().toInt();
-     for(int i=1;i<=mantenimiento;i++){
-        insertarEstacion(&ls,i,0,0,0);
-     }
-     ranav=rand()%(3-1+1)+1;
-     if(ranav==1){//peque
-         tama="Pequeño";
-         des=1;
-         ranpas=rand()%(10-5+1)+5;
-         ranman=rand()%(3-1+1)+1;
-         insertar(&ld,contador,ranav,ranpas,des,ranman);
-     }else if(ranav==2){//med
-         tama="Mediano";
-         des=2;
-         ranpas=rand()%(25-15+1)+15;
-         ranman=rand()%(4-2+1)+2;
-         insertar(&ld,contador,ranav,ranpas,des,ranman);
-     }else if(ranav==3){//grande
-         tama="Grande";
-         des=3;
-         ranpas=rand()%(40-30+1)+30;
-         ranman=rand()%(6-3+1)+3;
-         insertar(&ld,contador,ranav,ranpas,des,ranman);
-     }
-     contadorav++;
-     ui->consola->setText("***INICIO***");
-     ui->consola->append("AVIONES QUE SE INSERTARAN: "+QString::number(aviones));
-     ui->consola->append("ESCRITORIOS DE REGISTRO: "+QString::number(escritorio));
-     ui->consola->append("ESTACIONES DE MANTENIMIENTO: "+QString::number(mantenimiento));
-     ui->consola->append("TURNOS DEL SISTEMA: "+QString::number(turno));
-     ui->consola->append("***********************************");
-     ui->consola->append("\n");
-     ui->consola->append("[TURNO: "+QString::number(contador)+"]");
-     ui->consola->append("Arribó avion "+tama);
-     ui->consola->append("ID avion: "+QString::number(contador));
-     ui->consola->append("Avion desabordando: Ninguno");
-     imprimirconsola(ui->consola,&ls);
-     ui->consola->append("***********************************");
+        ui->groupBox->setDisabled(true);
+        aviones=ui->txtavion->text().toInt();
+        escritorio=ui->txtescritorio->text().toInt();
+        mantenimiento=ui->txtmantenimiento->text().toInt();
+        turno=ui->txtturnos->text().toInt();
+        if(escritorio<=27){
+            int idec;
+            srand(time(NULL));
+            for(int i=0;i<escritorio;i++){
+                idec=rand()%(90-65+1)+65;
+                while(existe(&le,idec)){
+                    idec=rand()%(90-65+1)+65;
+                }
+                insertarEscritorio(&le,(char)idec,0,0);
+            }
+
+            for(int i=1;i<=mantenimiento;i++){
+               insertarEstacion(&ls,i,0,0,0);
+            }
+            ranav=rand()%(3-1+1)+1;
+            if(ranav==1){//peque
+                tama="Pequeño";
+                des=1;
+                ranpas=rand()%(10-5+1)+5;
+                ranman=rand()%(3-1+1)+1;
+                insertar(&ld,contador,ranav,ranpas,des,ranman);
+            }else if(ranav==2){//med
+                tama="Mediano";
+                des=2;
+                ranpas=rand()%(25-15+1)+15;
+                ranman=rand()%(4-2+1)+2;
+                insertar(&ld,contador,ranav,ranpas,des,ranman);
+            }else if(ranav==3){//grande
+                tama="Grande";
+                des=3;
+                ranpas=rand()%(40-30+1)+30;
+                ranman=rand()%(6-3+1)+3;
+                insertar(&ld,contador,ranav,ranpas,des,ranman);
+            }
+            contadorav++;
+            ui->consola->setText("***INICIO***");
+            ui->consola->append("AVIONES QUE SE INSERTARAN: "+QString::number(aviones));
+            ui->consola->append("ESCRITORIOS DE REGISTRO: "+QString::number(escritorio));
+            ui->consola->append("ESTACIONES DE MANTENIMIENTO: "+QString::number(mantenimiento));
+            ui->consola->append("TURNOS DEL SISTEMA: "+QString::number(turno));
+            ui->consola->append("***********************************");
+            ui->consola->append("\n");
+            ui->consola->append("[TURNO: "+QString::number(contador)+"]");
+            ui->consola->append("Arribó avion "+tama);
+            ui->consola->append("ID avion: "+QString::number(contador));
+            ui->consola->append("Avion desabordando: Ninguno");
+            imprimirconsola(ui->consola,&ls);
+            imprimirconsolaE(ui->consola,&le);
+            ui->consola->append("***********************************");
 
 
 
 
-     contador++;
-     char ide;
-     int idec;
-     srand(time(NULL));
-     if(escritorio<=27){
-         for(int i=0;i<escritorio;i++){
-             idec=rand()%(90-65+1)+65;
-             while(existe(&le,ide)){
-                 idec=rand()%(90-65+1)+65;
-             }
-             insertarEscritorio(&le,(char)idec);
-         }
-     }
+            contador++;
 
-     mostrare(&le);
 
-     graficar *g = new graficar(&ld,&ls,&c,&pas,&lc,&le);
-     ui->btnsig->setEnabled(true);
+
+            mostrare(&le);
+
+            graficar *g = new graficar(&ld,&ls,&c,&pas,&lc,&le);
+            pixmap=QPixmap("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
+            pixmap=pixmap.scaled(ui->label_5->width(),ui->label_5->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+            ui->label_5->setPixmap(pixmap);
+            ui->label_5->setScaledContents(false);
+            ui->label_5->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+            ui->btnsig->setEnabled(true);
+        }else{
+            QMessageBox::warning(this,"Error","Para que los escritorios tengan de Id 1 caracter\n la cantidad de escritorios debe ser\n menor/igual a 27");
+        }
+
     }
 
 }
@@ -177,9 +190,22 @@ void principal::on_btnsig_clicked()
 
 
         imprimirconsola(ui->consola,&ls);
+        imprimirconsolaE(ui->consola,&le);
         ui->consola->append("***********************************");
+
         graficar *g = new graficar(&ld, &ls,&c,&pas,&lc,&le);
+        pixmap=QPixmap("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
+        pixmap=pixmap.scaled(ui->label_5->width(),ui->label_5->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        ui->label_5->setPixmap(pixmap);
+        ui->label_5->setScaledContents(false);
+        ui->label_5->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
+
     }
     contador++;
     contadorav++;
+}
+
+void principal::on_pushButton_2_clicked()
+{
+system("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
 }

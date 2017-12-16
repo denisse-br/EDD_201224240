@@ -8,5 +8,7 @@ INPUT(
 ./debug\pasajeros.o
 ./debug\maletas.o
 ./debug\escritorio.o
+./debug\colaescritorio.o
+./debug\qrc_imagen.o
 ./debug\moc_principal.o
 );

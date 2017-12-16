@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1008</width>
+    <width>1088</width>
     <height>719</height>
    </rect>
   </property>
@@ -17,10 +17,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>311</width>
-      <height>191</height>
+      <x>30</x>
+      <y>0</y>
+      <width>1031</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="title">
@@ -29,8 +29,8 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>110</x>
-       <y>150</y>
+       <x>450</x>
+       <y>60</y>
        <width>80</width>
        <height>21</height>
       </rect>
@@ -42,51 +42,51 @@
     <widget class="QWidget" name="">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>14</x>
        <y>30</y>
-       <width>286</width>
-       <height>108</height>
+       <width>1004</width>
+       <height>24</height>
       </rect>
      </property>
-     <layout class="QFormLayout" name="formLayout">
-      <item row="0" column="0">
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
        <widget class="QLabel" name="label">
         <property name="text">
          <string>NUMERO DE AVIONES:</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="1">
+      <item>
        <widget class="QLineEdit" name="txtavion"/>
       </item>
-      <item row="1" column="0">
+      <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
          <string>NUMERO DE ESCRITORIOS: </string>
         </property>
        </widget>
       </item>
-      <item row="1" column="1">
+      <item>
        <widget class="QLineEdit" name="txtescritorio"/>
       </item>
-      <item row="2" column="0">
+      <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
          <string>ESTACIONES DE MANTENIMIENTO:</string>
         </property>
        </widget>
       </item>
-      <item row="2" column="1">
+      <item>
        <widget class="QLineEdit" name="txtmantenimiento"/>
       </item>
-      <item row="3" column="0">
+      <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
          <string>NUMERO DE TURNOS: </string>
         </property>
        </widget>
       </item>
-      <item row="3" column="1">
+      <item>
        <widget class="QLineEdit" name="txtturnos"/>
       </item>
      </layout>
@@ -95,10 +95,10 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>220</y>
-      <width>311</width>
-      <height>461</height>
+      <x>0</x>
+      <y>100</y>
+      <width>451</width>
+      <height>581</height>
      </rect>
     </property>
     <property name="title">
@@ -108,9 +108,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>30</y>
-       <width>291</width>
-       <height>421</height>
+       <y>20</y>
+       <width>431</width>
+       <height>551</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -140,6 +140,58 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>SIGUIENTE</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>100</y>
+      <width>611</width>
+      <height>581</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>IMAGEN</string>
+    </property>
+    <widget class="QGraphicsView" name="graphicsView">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>591</width>
+       <height>541</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>50</y>
+       <width>541</width>
+       <height>481</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>730</x>
+      <y>690</y>
+      <width>80</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Ver en Visor</string>
     </property>
    </widget>
   </widget>
