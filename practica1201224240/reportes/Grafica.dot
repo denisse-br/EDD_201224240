@@ -3,28 +3,488 @@ digraph{
 label = "AEROPUERTO"; 
 	  subgraph clusterAviones{ 
 	  label = "AVIONES"; 
-		 a0[label="ID avion: 1\n Tamaño: Pequeño\n Pasajeros: 9\n Turnos en mantenimiento: 3 "];
+		 a0[label="ID avion: 3\n Tamaño: Pequeño\n Pasajeros: 5\n Turnos en mantenimiento: 1 "];
+		 a1[label="ID avion: 4\n Tamaño: Mediano\n Pasajeros: 18\n Turnos en mantenimiento: 4 "];
+		 a2[label="ID avion: 5\n Tamaño: Grande\n Pasajeros: 37\n Turnos en mantenimiento: 5 "];
+		 a3[label="ID avion: 6\n Tamaño: Grande\n Pasajeros: 38\n Turnos en mantenimiento: 6 "];
 }
+a0->a1
+a1->a2
+a1->a0
+a2->a3
+a2->a1
+a3->a2
 	  subgraph clusterlistaSim{ 
 	  label = "ESTACIONES DE MANTENIMIENTO"; 
-		 b0[label="ID estacion: 1\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
+		 b0[label="ID estacion: 1\nEstado: Ocupado\nAvion atendido: 2\nTurnos restantes: 5"];
 		 b1[label="ID estacion: 2\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
 		 b2[label="ID estacion: 3\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
+		 b3[label="ID estacion: 4\nEstado: Disponible\nNo hay avion asignado \nTurnos restantes: 0"];
 b0->b1[constraint=true];
 b1->b2[constraint=true];
+b2->b3[constraint=true];
 	 }	  subgraph clusterlistaCola{ 
 	  label = "COLA DE ESPERA"; 
 	 }	  subgraph clusterlistaColaPas{ 
 	  label = "COLA DE PASAJEROS "; 
+		 c0[label="ID pasajero: 1\nMaletas: 4\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c1[label="ID pasajero: 2\nMaletas: 3\nDocumentos: 8\nTurnos a Esperar: 1\n "];
+		 c2[label="ID pasajero: 3\nMaletas: 4\nDocumentos: 3\nTurnos a Esperar: 3\n "];
+		 c3[label="ID pasajero: 4\nMaletas: 2\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c4[label="ID pasajero: 5\nMaletas: 2\nDocumentos: 1\nTurnos a Esperar: 3\n "];
+		 c5[label="ID pasajero: 6\nMaletas: 3\nDocumentos: 8\nTurnos a Esperar: 1\n "];
+		 c6[label="ID pasajero: 7\nMaletas: 1\nDocumentos: 10\nTurnos a Esperar: 2\n "];
+		 c7[label="ID pasajero: 8\nMaletas: 4\nDocumentos: 6\nTurnos a Esperar: 3\n "];
+		 c8[label="ID pasajero: 9\nMaletas: 1\nDocumentos: 8\nTurnos a Esperar: 3\n "];
+		 c9[label="ID pasajero: 10\nMaletas: 2\nDocumentos: 4\nTurnos a Esperar: 2\n "];
+		 c10[label="ID pasajero: 11\nMaletas: 2\nDocumentos: 7\nTurnos a Esperar: 1\n "];
+		 c11[label="ID pasajero: 12\nMaletas: 1\nDocumentos: 1\nTurnos a Esperar: 2\n "];
+		 c12[label="ID pasajero: 13\nMaletas: 4\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c13[label="ID pasajero: 14\nMaletas: 1\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c14[label="ID pasajero: 15\nMaletas: 3\nDocumentos: 9\nTurnos a Esperar: 3\n "];
+		 c15[label="ID pasajero: 16\nMaletas: 1\nDocumentos: 7\nTurnos a Esperar: 3\n "];
+		 c16[label="ID pasajero: 17\nMaletas: 2\nDocumentos: 5\nTurnos a Esperar: 3\n "];
+		 c17[label="ID pasajero: 18\nMaletas: 1\nDocumentos: 9\nTurnos a Esperar: 1\n "];
+		 c18[label="ID pasajero: 19\nMaletas: 2\nDocumentos: 1\nTurnos a Esperar: 2\n "];
+		 c19[label="ID pasajero: 20\nMaletas: 2\nDocumentos: 9\nTurnos a Esperar: 1\n "];
+		 c20[label="ID pasajero: 21\nMaletas: 4\nDocumentos: 9\nTurnos a Esperar: 1\n "];
+		 c21[label="ID pasajero: 22\nMaletas: 2\nDocumentos: 8\nTurnos a Esperar: 3\n "];
+		 c22[label="ID pasajero: 23\nMaletas: 4\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c23[label="ID pasajero: 24\nMaletas: 2\nDocumentos: 9\nTurnos a Esperar: 3\n "];
+		 c24[label="ID pasajero: 25\nMaletas: 3\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c25[label="ID pasajero: 26\nMaletas: 4\nDocumentos: 10\nTurnos a Esperar: 3\n "];
+		 c26[label="ID pasajero: 27\nMaletas: 3\nDocumentos: 7\nTurnos a Esperar: 1\n "];
+		 c27[label="ID pasajero: 28\nMaletas: 2\nDocumentos: 3\nTurnos a Esperar: 2\n "];
+		 c28[label="ID pasajero: 29\nMaletas: 2\nDocumentos: 2\nTurnos a Esperar: 2\n "];
+		 c29[label="ID pasajero: 30\nMaletas: 4\nDocumentos: 4\nTurnos a Esperar: 3\n "];
+		 c30[label="ID pasajero: 31\nMaletas: 2\nDocumentos: 10\nTurnos a Esperar: 3\n "];
+		 c31[label="ID pasajero: 32\nMaletas: 3\nDocumentos: 9\nTurnos a Esperar: 1\n "];
+		 c32[label="ID pasajero: 33\nMaletas: 4\nDocumentos: 8\nTurnos a Esperar: 2\n "];
+		 c33[label="ID pasajero: 34\nMaletas: 1\nDocumentos: 10\nTurnos a Esperar: 1\n "];
+		 c34[label="ID pasajero: 35\nMaletas: 1\nDocumentos: 3\nTurnos a Esperar: 1\n "];
+		 c35[label="ID pasajero: 36\nMaletas: 1\nDocumentos: 1\nTurnos a Esperar: 1\n "];
+		 c36[label="ID pasajero: 37\nMaletas: 3\nDocumentos: 6\nTurnos a Esperar: 2\n "];
+		 c37[label="ID pasajero: 38\nMaletas: 4\nDocumentos: 7\nTurnos a Esperar: 3\n "];
+		 c38[label="ID pasajero: 39\nMaletas: 4\nDocumentos: 5\nTurnos a Esperar: 2\n "];
+		 c39[label="ID pasajero: 40\nMaletas: 3\nDocumentos: 4\nTurnos a Esperar: 3\n "];
+		 c40[label="ID pasajero: 41\nMaletas: 1\nDocumentos: 10\nTurnos a Esperar: 2\n "];
+		 c41[label="ID pasajero: 42\nMaletas: 2\nDocumentos: 3\nTurnos a Esperar: 2\n "];
+c0->c1
+c1->c2
+c2->c3
+c3->c4
+c4->c5
+c5->c6
+c6->c7
+c7->c8
+c8->c9
+c9->c10
+c10->c11
+c11->c12
+c12->c13
+c13->c14
+c14->c15
+c15->c16
+c16->c17
+c17->c18
+c18->c19
+c19->c20
+c20->c21
+c21->c22
+c22->c23
+c23->c24
+c24->c25
+c25->c26
+c26->c27
+c27->c28
+c28->c29
+c29->c30
+c30->c31
+c31->c32
+c32->c33
+c33->c34
+c34->c35
+c35->c36
+c36->c37
+c37->c38
+c38->c39
+c39->c40
+c40->c41
 	 }	  subgraph clusterlistamaleta{ 
 	  label = "MALETAS"; 
+		 d0[label="ID pasajero: 1\n Maleta#: 1"];
+		 d0[label="ID pasajero: 1\n Maleta#: 1"];
+		 d1[label="ID pasajero: 1\n Maleta#: 2"];
+		 d2[label="ID pasajero: 1\n Maleta#: 3"];
+		 d3[label="ID pasajero: 1\n Maleta#: 4"];
+		 d4[label="ID pasajero: 2\n Maleta#: 1"];
+		 d5[label="ID pasajero: 2\n Maleta#: 2"];
+		 d6[label="ID pasajero: 2\n Maleta#: 3"];
+		 d7[label="ID pasajero: 3\n Maleta#: 1"];
+		 d8[label="ID pasajero: 3\n Maleta#: 2"];
+		 d9[label="ID pasajero: 3\n Maleta#: 3"];
+		 d10[label="ID pasajero: 3\n Maleta#: 4"];
+		 d11[label="ID pasajero: 4\n Maleta#: 1"];
+		 d12[label="ID pasajero: 4\n Maleta#: 2"];
+		 d13[label="ID pasajero: 5\n Maleta#: 1"];
+		 d14[label="ID pasajero: 5\n Maleta#: 2"];
+		 d15[label="ID pasajero: 6\n Maleta#: 1"];
+		 d16[label="ID pasajero: 6\n Maleta#: 2"];
+		 d17[label="ID pasajero: 6\n Maleta#: 3"];
+		 d18[label="ID pasajero: 7\n Maleta#: 1"];
+		 d19[label="ID pasajero: 8\n Maleta#: 1"];
+		 d20[label="ID pasajero: 8\n Maleta#: 2"];
+		 d21[label="ID pasajero: 8\n Maleta#: 3"];
+		 d22[label="ID pasajero: 8\n Maleta#: 4"];
+		 d23[label="ID pasajero: 9\n Maleta#: 1"];
+		 d24[label="ID pasajero: 10\n Maleta#: 1"];
+		 d25[label="ID pasajero: 10\n Maleta#: 2"];
+		 d26[label="ID pasajero: 11\n Maleta#: 1"];
+		 d27[label="ID pasajero: 11\n Maleta#: 2"];
+		 d28[label="ID pasajero: 12\n Maleta#: 1"];
+		 d29[label="ID pasajero: 13\n Maleta#: 1"];
+		 d30[label="ID pasajero: 13\n Maleta#: 2"];
+		 d31[label="ID pasajero: 13\n Maleta#: 3"];
+		 d32[label="ID pasajero: 13\n Maleta#: 4"];
+		 d33[label="ID pasajero: 14\n Maleta#: 1"];
+		 d34[label="ID pasajero: 15\n Maleta#: 1"];
+		 d35[label="ID pasajero: 15\n Maleta#: 2"];
+		 d36[label="ID pasajero: 15\n Maleta#: 3"];
+		 d37[label="ID pasajero: 16\n Maleta#: 1"];
+		 d38[label="ID pasajero: 17\n Maleta#: 1"];
+		 d39[label="ID pasajero: 17\n Maleta#: 2"];
+		 d40[label="ID pasajero: 18\n Maleta#: 1"];
+		 d41[label="ID pasajero: 19\n Maleta#: 1"];
+		 d42[label="ID pasajero: 19\n Maleta#: 2"];
+		 d43[label="ID pasajero: 20\n Maleta#: 1"];
+		 d44[label="ID pasajero: 20\n Maleta#: 2"];
+		 d45[label="ID pasajero: 21\n Maleta#: 1"];
+		 d46[label="ID pasajero: 21\n Maleta#: 2"];
+		 d47[label="ID pasajero: 21\n Maleta#: 3"];
+		 d48[label="ID pasajero: 21\n Maleta#: 4"];
+		 d49[label="ID pasajero: 22\n Maleta#: 1"];
+		 d50[label="ID pasajero: 22\n Maleta#: 2"];
+		 d51[label="ID pasajero: 23\n Maleta#: 1"];
+		 d52[label="ID pasajero: 23\n Maleta#: 2"];
+		 d53[label="ID pasajero: 23\n Maleta#: 3"];
+		 d54[label="ID pasajero: 23\n Maleta#: 4"];
+		 d55[label="ID pasajero: 24\n Maleta#: 1"];
+		 d56[label="ID pasajero: 24\n Maleta#: 2"];
+		 d57[label="ID pasajero: 25\n Maleta#: 1"];
+		 d58[label="ID pasajero: 25\n Maleta#: 2"];
+		 d59[label="ID pasajero: 25\n Maleta#: 3"];
+		 d60[label="ID pasajero: 26\n Maleta#: 1"];
+		 d61[label="ID pasajero: 26\n Maleta#: 2"];
+		 d62[label="ID pasajero: 26\n Maleta#: 3"];
+		 d63[label="ID pasajero: 26\n Maleta#: 4"];
+		 d64[label="ID pasajero: 27\n Maleta#: 1"];
+		 d65[label="ID pasajero: 27\n Maleta#: 2"];
+		 d66[label="ID pasajero: 27\n Maleta#: 3"];
+		 d67[label="ID pasajero: 28\n Maleta#: 1"];
+		 d68[label="ID pasajero: 28\n Maleta#: 2"];
+		 d69[label="ID pasajero: 29\n Maleta#: 1"];
+		 d70[label="ID pasajero: 29\n Maleta#: 2"];
+		 d71[label="ID pasajero: 30\n Maleta#: 1"];
+		 d72[label="ID pasajero: 30\n Maleta#: 2"];
+		 d73[label="ID pasajero: 30\n Maleta#: 3"];
+		 d74[label="ID pasajero: 30\n Maleta#: 4"];
+		 d75[label="ID pasajero: 31\n Maleta#: 1"];
+		 d76[label="ID pasajero: 31\n Maleta#: 2"];
+		 d77[label="ID pasajero: 32\n Maleta#: 1"];
+		 d78[label="ID pasajero: 32\n Maleta#: 2"];
+		 d79[label="ID pasajero: 32\n Maleta#: 3"];
+		 d80[label="ID pasajero: 33\n Maleta#: 1"];
+		 d81[label="ID pasajero: 33\n Maleta#: 2"];
+		 d82[label="ID pasajero: 33\n Maleta#: 3"];
+		 d83[label="ID pasajero: 33\n Maleta#: 4"];
+		 d84[label="ID pasajero: 34\n Maleta#: 1"];
+		 d85[label="ID pasajero: 35\n Maleta#: 1"];
+		 d86[label="ID pasajero: 36\n Maleta#: 1"];
+		 d87[label="ID pasajero: 37\n Maleta#: 1"];
+		 d88[label="ID pasajero: 37\n Maleta#: 2"];
+		 d89[label="ID pasajero: 37\n Maleta#: 3"];
+		 d90[label="ID pasajero: 38\n Maleta#: 1"];
+		 d91[label="ID pasajero: 38\n Maleta#: 2"];
+		 d92[label="ID pasajero: 38\n Maleta#: 3"];
+		 d93[label="ID pasajero: 38\n Maleta#: 4"];
+		 d94[label="ID pasajero: 39\n Maleta#: 1"];
+		 d95[label="ID pasajero: 39\n Maleta#: 2"];
+		 d96[label="ID pasajero: 39\n Maleta#: 3"];
+		 d97[label="ID pasajero: 39\n Maleta#: 4"];
+		 d98[label="ID pasajero: 40\n Maleta#: 1"];
+		 d99[label="ID pasajero: 40\n Maleta#: 2"];
+		 d100[label="ID pasajero: 40\n Maleta#: 3"];
+		 d101[label="ID pasajero: 41\n Maleta#: 1"];
+		 d102[label="ID pasajero: 42\n Maleta#: 1"];
+		 d103[label="ID pasajero: 42\n Maleta#: 2"];
+{rank=same d0; d103;}
+{rank=same d1; d102;}
+{rank=same d2; d101;}
+{rank=same d3; d100;}
+{rank=same d4; d99;}
+{rank=same d5; d98;}
+{rank=same d6; d97;}
+{rank=same d7; d96;}
+{rank=same d8; d95;}
+{rank=same d9; d94;}
+{rank=same d10; d93;}
+{rank=same d11; d92;}
+{rank=same d12; d91;}
+{rank=same d13; d90;}
+{rank=same d14; d89;}
+{rank=same d15; d88;}
+{rank=same d16; d87;}
+{rank=same d17; d86;}
+{rank=same d18; d85;}
+{rank=same d19; d84;}
+{rank=same d20; d83;}
+{rank=same d21; d82;}
+{rank=same d22; d81;}
+{rank=same d23; d80;}
+{rank=same d24; d79;}
+{rank=same d25; d78;}
+{rank=same d26; d77;}
+{rank=same d27; d76;}
+{rank=same d28; d75;}
+{rank=same d29; d74;}
+{rank=same d30; d73;}
+{rank=same d31; d72;}
+{rank=same d32; d71;}
+{rank=same d33; d70;}
+{rank=same d34; d69;}
+{rank=same d35; d68;}
+{rank=same d36; d67;}
+{rank=same d37; d66;}
+{rank=same d38; d65;}
+{rank=same d39; d64;}
+{rank=same d40; d63;}
+{rank=same d41; d62;}
+{rank=same d42; d61;}
+{rank=same d43; d60;}
+{rank=same d44; d59;}
+{rank=same d45; d58;}
+{rank=same d46; d57;}
+{rank=same d47; d56;}
+{rank=same d48; d55;}
+{rank=same d49; d54;}
+{rank=same d50; d53;}
+{rank=same d51; d52;}
+{rank=same d52; d51;}
+		 d0->d1[constraint=true];
+		 d1->d0[constraint=true];
+		 d1->d2[constraint=true];
+		 d2->d1[constraint=true];
+		 d2->d3[constraint=true];
+		 d3->d2[constraint=true];
+		 d3->d4[constraint=true];
+		 d4->d3[constraint=true];
+		 d4->d5[constraint=true];
+		 d5->d4[constraint=true];
+		 d5->d6[constraint=true];
+		 d6->d5[constraint=true];
+		 d6->d7[constraint=true];
+		 d7->d6[constraint=true];
+		 d7->d8[constraint=true];
+		 d8->d7[constraint=true];
+		 d8->d9[constraint=true];
+		 d9->d8[constraint=true];
+		 d9->d10[constraint=true];
+		 d10->d9[constraint=true];
+		 d10->d11[constraint=true];
+		 d11->d10[constraint=true];
+		 d11->d12[constraint=true];
+		 d12->d11[constraint=true];
+		 d12->d13[constraint=true];
+		 d13->d12[constraint=true];
+		 d13->d14[constraint=true];
+		 d14->d13[constraint=true];
+		 d14->d15[constraint=true];
+		 d15->d14[constraint=true];
+		 d15->d16[constraint=true];
+		 d16->d15[constraint=true];
+		 d16->d17[constraint=true];
+		 d17->d16[constraint=true];
+		 d17->d18[constraint=true];
+		 d18->d17[constraint=true];
+		 d18->d19[constraint=true];
+		 d19->d18[constraint=true];
+		 d19->d20[constraint=true];
+		 d20->d19[constraint=true];
+		 d20->d21[constraint=true];
+		 d21->d20[constraint=true];
+		 d21->d22[constraint=true];
+		 d22->d21[constraint=true];
+		 d22->d23[constraint=true];
+		 d23->d22[constraint=true];
+		 d23->d24[constraint=true];
+		 d24->d23[constraint=true];
+		 d24->d25[constraint=true];
+		 d25->d24[constraint=true];
+		 d25->d26[constraint=true];
+		 d26->d25[constraint=true];
+		 d26->d27[constraint=true];
+		 d27->d26[constraint=true];
+		 d27->d28[constraint=true];
+		 d28->d27[constraint=true];
+		 d28->d29[constraint=true];
+		 d29->d28[constraint=true];
+		 d29->d30[constraint=true];
+		 d30->d29[constraint=true];
+		 d30->d31[constraint=true];
+		 d31->d30[constraint=true];
+		 d31->d32[constraint=true];
+		 d32->d31[constraint=true];
+		 d32->d33[constraint=true];
+		 d33->d32[constraint=true];
+		 d33->d34[constraint=true];
+		 d34->d33[constraint=true];
+		 d34->d35[constraint=true];
+		 d35->d34[constraint=true];
+		 d35->d36[constraint=true];
+		 d36->d35[constraint=true];
+		 d36->d37[constraint=true];
+		 d37->d36[constraint=true];
+		 d37->d38[constraint=true];
+		 d38->d37[constraint=true];
+		 d38->d39[constraint=true];
+		 d39->d38[constraint=true];
+		 d39->d40[constraint=true];
+		 d40->d39[constraint=true];
+		 d40->d41[constraint=true];
+		 d41->d40[constraint=true];
+		 d41->d42[constraint=true];
+		 d42->d41[constraint=true];
+		 d42->d43[constraint=true];
+		 d43->d42[constraint=true];
+		 d43->d44[constraint=true];
+		 d44->d43[constraint=true];
+		 d44->d45[constraint=true];
+		 d45->d44[constraint=true];
+		 d45->d46[constraint=true];
+		 d46->d45[constraint=true];
+		 d46->d47[constraint=true];
+		 d47->d46[constraint=true];
+		 d47->d48[constraint=true];
+		 d48->d47[constraint=true];
+		 d48->d49[constraint=true];
+		 d49->d48[constraint=true];
+		 d49->d50[constraint=true];
+		 d50->d49[constraint=true];
+		 d50->d51[constraint=true];
+		 d51->d50[constraint=true];
+		 d51->d52[constraint=true];
+		 d52->d51[constraint=true];
+		 d52->d53[constraint=true];
+		 d53->d52[constraint=true];
+		 d53->d54[constraint=true];
+		 d54->d53[constraint=true];
+		 d54->d55[constraint=true];
+		 d55->d54[constraint=true];
+		 d55->d56[constraint=true];
+		 d56->d55[constraint=true];
+		 d56->d57[constraint=true];
+		 d57->d56[constraint=true];
+		 d57->d58[constraint=true];
+		 d58->d57[constraint=true];
+		 d58->d59[constraint=true];
+		 d59->d58[constraint=true];
+		 d59->d60[constraint=true];
+		 d60->d59[constraint=true];
+		 d60->d61[constraint=true];
+		 d61->d60[constraint=true];
+		 d61->d62[constraint=true];
+		 d62->d61[constraint=true];
+		 d62->d63[constraint=true];
+		 d63->d62[constraint=true];
+		 d63->d64[constraint=true];
+		 d64->d63[constraint=true];
+		 d64->d65[constraint=true];
+		 d65->d64[constraint=true];
+		 d65->d66[constraint=true];
+		 d66->d65[constraint=true];
+		 d66->d67[constraint=true];
+		 d67->d66[constraint=true];
+		 d67->d68[constraint=true];
+		 d68->d67[constraint=true];
+		 d68->d69[constraint=true];
+		 d69->d68[constraint=true];
+		 d69->d70[constraint=true];
+		 d70->d69[constraint=true];
+		 d70->d71[constraint=true];
+		 d71->d70[constraint=true];
+		 d71->d72[constraint=true];
+		 d72->d71[constraint=true];
+		 d72->d73[constraint=true];
+		 d73->d72[constraint=true];
+		 d73->d74[constraint=true];
+		 d74->d73[constraint=true];
+		 d74->d75[constraint=true];
+		 d75->d74[constraint=true];
+		 d75->d76[constraint=true];
+		 d76->d75[constraint=true];
+		 d76->d77[constraint=true];
+		 d77->d76[constraint=true];
+		 d77->d78[constraint=true];
+		 d78->d77[constraint=true];
+		 d78->d79[constraint=true];
+		 d79->d78[constraint=true];
+		 d79->d80[constraint=true];
+		 d80->d79[constraint=true];
+		 d80->d81[constraint=true];
+		 d81->d80[constraint=true];
+		 d81->d82[constraint=true];
+		 d82->d81[constraint=true];
+		 d82->d83[constraint=true];
+		 d83->d82[constraint=true];
+		 d83->d84[constraint=true];
+		 d84->d83[constraint=true];
+		 d84->d85[constraint=true];
+		 d85->d84[constraint=true];
+		 d85->d86[constraint=true];
+		 d86->d85[constraint=true];
+		 d86->d87[constraint=true];
+		 d87->d86[constraint=true];
+		 d87->d88[constraint=true];
+		 d88->d87[constraint=true];
+		 d88->d89[constraint=true];
+		 d89->d88[constraint=true];
+		 d89->d90[constraint=true];
+		 d90->d89[constraint=true];
+		 d90->d91[constraint=true];
+		 d91->d90[constraint=true];
+		 d91->d92[constraint=true];
+		 d92->d91[constraint=true];
+		 d92->d93[constraint=true];
+		 d93->d92[constraint=true];
+		 d93->d94[constraint=true];
+		 d94->d93[constraint=true];
+		 d94->d95[constraint=true];
+		 d95->d94[constraint=true];
+		 d95->d96[constraint=true];
+		 d96->d95[constraint=true];
+		 d96->d97[constraint=true];
+		 d97->d96[constraint=true];
+		 d97->d98[constraint=true];
+		 d98->d97[constraint=true];
+		 d98->d99[constraint=true];
+		 d99->d98[constraint=true];
+		 d99->d100[constraint=true];
+		 d100->d99[constraint=true];
+		 d100->d101[constraint=true];
+		 d101->d100[constraint=true];
+		 d101->d102[constraint=true];
+		 d102->d101[constraint=true];
+		 d102->d103[constraint=true];
+		 d103->d102[constraint=true];
+		 d103->d0[constraint=true];
+		 d0->d103[constraint=true];
 	 }	  subgraph clusterEscritorios{ 
 	  label = "ESCRITORIOS"; 
-		 e0[label="ID escritorio: E\nID Pasajero: No asignado\nTurnos: 0
+		 e0[label="ID escritorio: N\nID Pasajero: No asignado\nTurnos: 0
  "];
-		 e1[label="ID escritorio: Q\nID Pasajero: No asignado\nTurnos: 0
+		 e1[label="ID escritorio: P\nID Pasajero: No asignado\nTurnos: 0
  "];
-		 e2[label="ID escritorio: Z\nID Pasajero: No asignado\nTurnos: 0
+		 e2[label="ID escritorio: Y\nID Pasajero: No asignado\nTurnos: 0
  "];
 }
 e0->e1

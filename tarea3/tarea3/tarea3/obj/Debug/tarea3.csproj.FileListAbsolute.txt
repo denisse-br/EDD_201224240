@@ -1,0 +1,6 @@
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\bin\Debug\tarea3.exe.config
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\bin\Debug\tarea3.exe
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\bin\Debug\tarea3.pdb
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\obj\Debug\tarea3.csprojResolveAssemblyReference.cache
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\obj\Debug\tarea3.exe
+C:\Users\Denissebr\Desktop\EDD_201224240\tarea3\tarea3\tarea3\obj\Debug\tarea3.pdb

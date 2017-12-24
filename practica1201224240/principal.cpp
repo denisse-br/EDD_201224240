@@ -31,16 +31,18 @@ void principal::on_pushButton_clicked()
     pas=NULL;
     lc=NULL;
     le=NULL;
+
     if(ui->txtavion->text()==""||ui->txtescritorio->text()==""||ui->txtmantenimiento->text()==""||ui->txtturnos->text()==""){
         QMessageBox::warning(this, "Error", "Datos iniciales no pueden estar vacios,\ningrese un dato");
     }
     else{
-        ui->groupBox->setDisabled(true);
         aviones=ui->txtavion->text().toInt();
         escritorio=ui->txtescritorio->text().toInt();
         mantenimiento=ui->txtmantenimiento->text().toInt();
         turno=ui->txtturnos->text().toInt();
-        if(escritorio<=27){
+        if(escritorio<=26){
+
+            ui->groupBox->setDisabled(true);
             int idec;
             srand(time(NULL));
             for(int i=0;i<escritorio;i++){
@@ -101,13 +103,14 @@ void principal::on_pushButton_clicked()
 
             graficar *g = new graficar(&ld,&ls,&c,&pas,&lc,&le);
             pixmap=QPixmap("C:/Users/Denissebr/Desktop/EDD_201224240/practica1201224240/reportes/Grafica.jpg");
+            ui->label_5->setVisible(true);
             pixmap=pixmap.scaled(ui->label_5->width(),ui->label_5->height(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
             ui->label_5->setPixmap(pixmap);
             ui->label_5->setScaledContents(false);
             ui->label_5->setSizePolicy(QSizePolicy::Ignored,QSizePolicy::Ignored);
             ui->btnsig->setEnabled(true);
         }else{
-            QMessageBox::warning(this,"Error","Para que los escritorios tengan de Id 1 caracter\n la cantidad de escritorios debe ser\n menor/igual a 27");
+            QMessageBox::warning(this,"Error","Para que los escritorios tengan de Id 1 caracter\n la cantidad de escritorios debe ser\n menor/igual a 26");
         }
 
     }
@@ -124,9 +127,11 @@ void principal::on_btnsig_clicked()
         contadorav=0;
         ld=NULL;
         ls=NULL;
+
         ui->consola->clear();
         ui->btnsig->setEnabled(false);
         ui->groupBox->setDisabled(false);
+        ui->label_5->setVisible(false);
     }else{
         ui->consola->append("[TURNO: "+QString::number(contador)+"]");
         if(contadorav>aviones){
